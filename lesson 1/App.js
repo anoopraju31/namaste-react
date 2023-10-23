@@ -1,10 +1,25 @@
+/*
+    <div id="parent">
+        <div id="child">
+            <h1> Hello World </h1>
+        </div>
+    </div>
+*/
+
+const parent = React.createElement(
+	'div',
+	{ id: 'parent' },
+	React.createElement(
+		'div',
+		{ id: 'child' },
+		React.createElement('h1', {}, 'Hello World'),
+	),
+)
+
+console.log(parent) //Object
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
-const heading1 = React.createElement(
-	'h1',
-	{ id: 'heading' },
-	'Hello World from React',
-) //returns Object
 
-console.log(heading1)
+root.render(parent) //render() => converts the js object into html h1 tag
 
-root.render(heading1) //render() => converts the js object into html h1 tag
+// Object -> HTML
