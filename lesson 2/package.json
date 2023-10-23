@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is namaste react by anoop raju",
   "scripts": {
+    "start": "npx parcel index.html",
     "test": "jest"
   },
   "keywords": [
@@ -17,5 +18,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
