@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 // React Element
 const jsxHeading = (
 	<h1 className='head' tabIndex={3}>
-		{' '}
+		{<span> Hai </span>}
 		Namaste React using JSX 🚀{' '}
 	</h1>
 )
@@ -26,6 +26,7 @@ const HeadingComponent = () => {
 	return (
 		<div>
 			<Title />
+			{Title()}
 			<h1> Namaste React Functional Component </h1>
 			{jsxHeading}
 		</div>
