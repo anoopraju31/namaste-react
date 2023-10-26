@@ -35,3 +35,7 @@
     - Links
     - Address
     - Contact
+
+## React Hooks
+- useState - to create superpowerfull react variables
+- useEffect 
