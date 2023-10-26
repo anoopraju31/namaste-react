@@ -3,6 +3,11 @@ import React from 'react'
 const RestaurantCard = ({ resData }) => {
 	const { name, cloudinaryImageId, cuisines, avgRating, costForTwo } =
 		resData.info
+
+	const styleCard = {
+		backgroundColor: '#fc4',
+	}
+
 	return (
 		<div className='res-card' style={styleCard}>
 			<img
