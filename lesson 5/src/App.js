@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Header } from './components'
+import { Body, Header } from './components'
 
 const restaurants = [
 	{
@@ -927,17 +927,6 @@ const RestaurantCard = ({ resData }) => {
 		</div>
 	)
 }
-
-const Body = () => (
-	<div className='body'>
-		<div className='search'> Search </div>
-		<div className='res-container'>
-			{restaurants.map((restaurant) => (
-				<RestaurantCard key={restaurant.info.id} resData={restaurant} />
-			))}
-		</div>
-	</div>
-)
 
 const AppLayout = () => (
 	<div className='app'>
