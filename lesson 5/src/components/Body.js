@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RestaurantCard } from './'
 import { restaurants } from '../utills/mockData'
 
 const Body = () => {
+	// Mormal JS Variable
 	let listOfRestuarants = [
 		{
 			info: {
@@ -35,6 +36,10 @@ const Body = () => {
 			},
 		},
 	]
+
+	// React State Variable
+	const [restaurants, setRestaurants] = useState(listOfRestuarants)
+
 	return (
 		<div className='body'>
 			{/* <div className='search'> Search </div> */}
@@ -42,18 +47,16 @@ const Body = () => {
 				<button
 					className='filter-btn'
 					onClick={() => {
-						listOfRestuarants = listOfRestuarants.filter(
-							(res) => res.info.avgRating >= 4,
+						setRestaurants((prev) =>
+							prev.filter((res) => res.info.avgRating >= 4),
 						)
-
-						console.log(listOfRestuarants)
 					}}>
 					{' '}
 					Top Rated Restuarants{' '}
 				</button>
 			</div>
 			<div className='res-container'>
-				{listOfRestuarants.map((restaurant) => (
+				{restaurants.map((restaurant) => (
 					<RestaurantCard key={restaurant.info.id} resData={restaurant} />
 				))}
 			</div>
