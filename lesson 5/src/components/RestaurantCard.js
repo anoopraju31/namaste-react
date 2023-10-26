@@ -1,4 +1,5 @@
 import React from 'react'
+import { IMAGE_CDN_URL } from '../utills/constants'
 
 const RestaurantCard = ({ resData }) => {
 	const { name, cloudinaryImageId, cuisines, avgRating, costForTwo } =
@@ -12,7 +13,7 @@ const RestaurantCard = ({ resData }) => {
 		<div className='res-card' style={styleCard}>
 			<img
 				className='res-logo'
-				src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
+				src={IMAGE_CDN_URL + cloudinaryImageId}
 				alt='res logo'
 			/>
 			<h3> {name} </h3>
