@@ -1,4 +1,5 @@
 import React from 'react'
+import { RestaurantCard } from './'
 
 const Body = () => {
 	return (
