@@ -17,13 +17,14 @@ const Body = () => {
 		const data = await res.json()
 
 		setRestaurantsList(
-			data.data.cards[5].card.card.gridElements.infoWithStyle.restaurants,
+			data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				?.restaurants,
 		)
 
 		// console.log(data)
 	}
 
-	console.log('Body Rendered!')
+	if (restaurantsList.length === 0) return <h1> Loading.. </h1>
 
 	return (
 		<div className='body'>
