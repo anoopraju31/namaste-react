@@ -24,9 +24,10 @@ const Body = () => {
 		// console.log(data)
 	}
 
-	if (restaurantsList.length === 0) return <Shimmer />
-
-	return (
+	// Conditional Rendering
+	return restaurantsList.length === 0 ? (
+		<Shimmer />
+	) : (
 		<div className='body'>
 			{/* <div className='search'> Search </div> */}
 			<div className='filter'>
