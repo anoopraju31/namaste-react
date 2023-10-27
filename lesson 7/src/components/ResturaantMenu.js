@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Shimmer } from './'
+import { IMAGE_CDN_URL } from '../utills/constants'
 
 const ResturaantMenu = () => {
+	const [restuarantInfo, setRestuarantInfo] = useState(null)
+
 	useEffect(() => {
 		fetchMenu()
 	}, [])
@@ -12,11 +16,21 @@ const ResturaantMenu = () => {
 		const data = await res.json()
 
 		console.log(data)
+		setRestuarantInfo(data?.data)
 	}
 
-	return (
+	const { name, cuisines, cloudinaryImageId, costForTwo, avgRating } =
+		restuarantInfo.cards[0]?.card?.card?.info
+
+	return restuarantInfo === null ? (
+		<Shimmer />
+	) : (
 		<div>
-			<h1> Name of restuarant </h1>
+			<img src={IMAGE_CDN_URL + cloudinaryImageId} alt='' />
+			<h1> {name} </h1>
+			<p> {cuisines.join(', ')} </p>
+			<p> {costForTwo} </p>
+			<p> {avgRating} </p>
 			<h2> Menu </h2>
 			<ul>
 				<li> Biryani </li>
