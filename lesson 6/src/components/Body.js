@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { RestaurantCard, Shimmer } from './'
-import { restaurants } from '../utills/mockData'
 import { FETCH_URL } from '../utills/constants'
 
 const Body = () => {
 	// React State Variable
 	const [restaurantsList, setRestaurantsList] = useState([])
+	const [filteredRestaurantsList, setFilteredRestaurantsList] = useState([])
 	const [searchText, setSearchText] = useState('')
 
 	useEffect(() => {
@@ -17,6 +17,11 @@ const Body = () => {
 		const data = await res.json()
 
 		setRestaurantsList(
+			data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				?.restaurants,
+		)
+
+		setFilteredRestaurantsList(
 			data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
 				?.restaurants,
 		)
@@ -40,13 +45,19 @@ const Body = () => {
 						onClick={() => {
 							// filter the restuarant cards and update the UI
 							// searchText
-							setRestaurantsList((prev) =>
-								prev.filter((res) =>
+							const filtered = restaurantsList.filter(
+								(res) =>
 									res.info.name
 										.toLowerCase()
+										.includes(searchText.toLowerCase()) ||
+									res.info.cuisines
+										.join(', ')
+										.toLowerCase()
 										.includes(searchText.toLowerCase()),
-								),
 							)
+
+							console.log(filtered)
+							setFilteredRestaurantsList(filtered)
 						}}>
 						{' '}
 						search{' '}
@@ -56,7 +67,7 @@ const Body = () => {
 					<button
 						className='filter-btn'
 						onClick={() => {
-							setRestaurantsList((prev) =>
+							setFilteredRestaurantsList((prev) =>
 								prev.filter((res) => res.info.avgRating >= 4),
 							)
 						}}>
@@ -67,7 +78,7 @@ const Body = () => {
 					<button
 						className='filter-btn'
 						onClick={() => {
-							setRestaurantsList(restaurants)
+							setFilteredRestaurantsList(restaurantsList)
 						}}>
 						{' '}
 						Reset
@@ -75,7 +86,7 @@ const Body = () => {
 				</div>
 			</div>
 			<div className='res-container'>
-				{restaurantsList?.map((restaurant) => (
+				{filteredRestaurantsList?.map((restaurant) => (
 					<RestaurantCard key={restaurant.info.id} resData={restaurant} />
 				))}
 			</div>
