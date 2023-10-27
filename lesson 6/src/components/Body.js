@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RestaurantCard } from './'
 import { restaurants } from '../utills/mockData'
 
 const Body = () => {
 	// React State Variable
-	const [restaurantsList, setRestaurantsList] = useState(restaurants)
+	const [restaurantsList, setRestaurantsList] = useState([])
+
+	useEffect(() => {
+		fetchData()
+	}, [])
+
+	const fetchData = async () => {
+		const res = await fetch(
+			'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING',
+		)
+		const data = await res.json()
+
+		setRestaurantsList(
+			data.data.cards[5].card.card.gridElements.infoWithStyle.restaurants,
+		)
+
+		// console.log(data)
+	}
+
+	console.log('Body Rendered!')
 
 	return (
 		<div className='body'>
@@ -31,7 +50,7 @@ const Body = () => {
 				</button>
 			</div>
 			<div className='res-container'>
-				{restaurantsList.map((restaurant) => (
+				{restaurantsList?.map((restaurant) => (
 					<RestaurantCard key={restaurant.info.id} resData={restaurant} />
 				))}
 			</div>
