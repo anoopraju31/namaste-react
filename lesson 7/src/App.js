@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { About, Body, Header } from './components'
+import { About, Body, Contact, Header } from './components'
 
 const AppLayout = () => (
 	<div className='app'>
@@ -18,6 +18,10 @@ const appRouter = createBrowserRouter([
 	{
 		path: '/about',
 		element: <About />,
+	},
+	{
+		path: '/contact',
+		element: <Contact />,
 	},
 ])
 
