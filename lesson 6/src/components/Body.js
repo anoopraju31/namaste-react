@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { RestaurantCard } from './'
+import { RestaurantCard, Shimmer } from './'
 import { restaurants } from '../utills/mockData'
 
 const Body = () => {
@@ -24,7 +24,7 @@ const Body = () => {
 		// console.log(data)
 	}
 
-	if (restaurantsList.length === 0) return <h1> Loading.. </h1>
+	if (restaurantsList.length === 0) return <Shimmer />
 
 	return (
 		<div className='body'>
