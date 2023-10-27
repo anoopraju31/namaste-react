@@ -1,7 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { About, Body, Contact, Error, Header } from './components'
+import {
+	About,
+	Body,
+	Contact,
+	Error,
+	Header,
+	ResturaantMenu,
+} from './components'
 
 const AppLayout = () => (
 	<div className='app'>
@@ -26,6 +33,10 @@ const appRouter = createBrowserRouter([
 			{
 				path: '/contact',
 				element: <Contact />,
+			},
+			{
+				path: '/restuarant/:id',
+				element: <ResturaantMenu />,
 			},
 		],
 		errorElement: <Error />,
