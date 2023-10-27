@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { RestaurantCard, Shimmer } from './'
 import { restaurants } from '../utills/mockData'
-import { fetchUrl } from '../utills/constants'
+import { FETCH_URL } from '../utills/constants'
 
 const Body = () => {
 	// React State Variable
@@ -13,7 +13,7 @@ const Body = () => {
 	}, [])
 
 	const fetchData = async () => {
-		const res = await fetch(fetchUrl)
+		const res = await fetch(FETCH_URL)
 		const data = await res.json()
 
 		setRestaurantsList(
@@ -40,6 +40,9 @@ const Body = () => {
 						onClick={() => {
 							// filter the restuarant cards and update the UI
 							// searchText
+							setRestaurantsList((prev) =>
+								prev.filter((res) => res.info.name === searchText),
+							)
 						}}>
 						{' '}
 						search{' '}
