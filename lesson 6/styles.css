@@ -48,10 +48,15 @@
 	aspect-ratio: 16/9;
 }
 
+.filter {
+	display: flex;
+	align-items: center;
+}
+
 .filter-btn {
-	margin: 10px;
+	margin: 20px;
 	cursor: pointer;
-	padding: 10px;
+	background-color: #fc4;
 }
 .shimmer-container {
 	display: flex;
@@ -65,7 +70,7 @@
 	background-color: #fc4;
 }
 
-.login-button {
-	padding: 0 20px;
+.search {
+	padding: 0px 20px;
 	cursor: pointer;
 }
