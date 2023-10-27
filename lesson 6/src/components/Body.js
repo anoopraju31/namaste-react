@@ -41,7 +41,11 @@ const Body = () => {
 							// filter the restuarant cards and update the UI
 							// searchText
 							setRestaurantsList((prev) =>
-								prev.filter((res) => res.info.name === searchText),
+								prev.filter((res) =>
+									res.info.name
+										.toLowerCase()
+										.includes(searchText.toLowerCase()),
+								),
 							)
 						}}>
 						{' '}
