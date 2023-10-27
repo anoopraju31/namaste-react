@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { About, Body, Contact, Header } from './components'
+import { About, Body, Contact, Error, Header } from './components'
 
 const AppLayout = () => (
 	<div className='app'>
@@ -14,6 +14,7 @@ const appRouter = createBrowserRouter([
 	{
 		path: '/',
 		element: <AppLayout />,
+		errorElement: <Error />,
 	},
 	{
 		path: '/about',
