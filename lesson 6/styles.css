@@ -64,3 +64,8 @@
 	height: 400px;
 	background-color: #fc4;
 }
+
+.login-button {
+	padding: 0 20px;
+	cursor: pointer;
+}
