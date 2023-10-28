@@ -1,3 +1,5 @@
+import React from 'react'
+
 class UserClass extends React.Component {
 	render() {
 		return (
@@ -9,3 +11,5 @@ class UserClass extends React.Component {
 		)
 	}
 }
+
+export default UserClass

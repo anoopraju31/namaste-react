@@ -1,5 +1,6 @@
 import React from 'react'
 import { User } from './'
+import UserClass from './UserClass'
 
 const About = () => {
 	return (
@@ -8,6 +9,7 @@ const About = () => {
 			<h2> This namaste react series </h2>
 
 			<User />
+			<UserClass />
 		</div>
 	)
 }
