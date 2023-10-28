@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { FoodCard, Shimmer } from './'
 import { IMAGE_CDN_URL, RESTAURANT_INFO_URL } from '../utills/constants'
+import { useParams } from 'react-router-dom'
 
 const ResturaantMenu = () => {
 	const [restuarantInfo, setRestuarantInfo] = useState(null)
+	const { id } = useParams()
 
 	useEffect(() => {
-		fetchMenu()
-	}, [])
+		fetchMenu(id)
+	}, [id])
 
 	const fetchMenu = async (id) => {
-		// console.log(RESTAURANT_INFO_URL + id)
-		const res = await fetch(RESTAURANT_INFO_URL)
+		const res = await fetch(RESTAURANT_INFO_URL + id)
 		const data = await res.json()
 
 		setRestuarantInfo(data?.data)

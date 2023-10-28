@@ -1,5 +1,6 @@
 import React from 'react'
 import { IMAGE_CDN_URL } from '../utills/constants'
+import { Link } from 'react-router-dom'
 
 const RestaurantCard = ({ resData }) => {
 	const { name, cloudinaryImageId, cuisines, avgRating, costForTwo } =
@@ -10,7 +11,10 @@ const RestaurantCard = ({ resData }) => {
 	}
 
 	return (
-		<div className='res-card' style={styleCard}>
+		<Link
+			to={`/restuarant/${resData.info.id}`}
+			className='res-card'
+			style={styleCard}>
 			<img
 				className='res-logo'
 				src={IMAGE_CDN_URL + cloudinaryImageId}
@@ -20,7 +24,7 @@ const RestaurantCard = ({ resData }) => {
 			<h4> {cuisines.join(', ')} </h4>
 			<h4> {avgRating} Stars </h4>
 			<h4> {costForTwo} </h4>
-		</div>
+		</Link>
 	)
 }
 
