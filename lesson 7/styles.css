@@ -74,3 +74,24 @@
 	padding: 0px 20px;
 	cursor: pointer;
 }
+
+.food-container {
+	list-style: none;
+}
+
+.food-card {
+	width: 100%;
+	display: flex;
+	gap: 20px;
+	border: 1px solid #333;
+	text-align: center;
+	border-radius: 12px;
+	margin-bottom: 20px;
+}
+
+.food-card img {
+	width: 200px;
+	object-fit: contain;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}

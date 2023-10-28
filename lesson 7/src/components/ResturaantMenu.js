@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Shimmer } from './'
+import { FoodCard, Shimmer } from './'
 import { IMAGE_CDN_URL, RESTAURANT_INFO_URL } from '../utills/constants'
 
 const ResturaantMenu = () => {
@@ -14,7 +14,6 @@ const ResturaantMenu = () => {
 		const res = await fetch(RESTAURANT_INFO_URL)
 		const data = await res.json()
 
-		console.log(data)
 		setRestuarantInfo(data?.data)
 	}
 
@@ -22,6 +21,9 @@ const ResturaantMenu = () => {
 
 	const { name, cuisines, cloudinaryImageId, costForTwo, avgRating } =
 		restuarantInfo?.cards[0]?.card?.card?.info
+	const { itemCards } =
+		restuarantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+			?.card
 
 	return (
 		<div>
@@ -31,10 +33,13 @@ const ResturaantMenu = () => {
 			<p> {costForTwo} </p>
 			<p> {avgRating} </p>
 			<h2> Menu </h2>
-			<ul>
-				<li> Biryani </li>
-				<li> Burgers </li>
-				<li> Diet Coke </li>
+			<h2> Recommended </h2>
+			<ul className='food-container'>
+				{itemCards?.map((item) => (
+					<li key={item?.card?.info?.id}>
+						<FoodCard food={item?.card?.info} />
+					</li>
+				))}
 			</ul>
 		</div>
 	)
