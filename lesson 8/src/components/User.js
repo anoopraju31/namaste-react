@@ -1,5 +1,11 @@
 const User = () => {
-	return <div>User</div>
+	return (
+		<div className='user-card'>
+			<h2> Name: Anoop </h2>
+			<h3> Location: Kerala </h3>
+			<h4> Contact Anoop2019 </h4>
+		</div>
+	)
 }
 
 export default User
