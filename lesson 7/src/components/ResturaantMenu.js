@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Shimmer } from './'
-import { IMAGE_CDN_URL } from '../utills/constants'
+import { IMAGE_CDN_URL, RESTAURANT_INFO_URL } from '../utills/constants'
 
 const ResturaantMenu = () => {
 	const [restuarantInfo, setRestuarantInfo] = useState(null)
@@ -9,22 +9,21 @@ const ResturaantMenu = () => {
 		fetchMenu()
 	}, [])
 
-	const fetchMenu = async () => {
-		const res = await fetch(
-			'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=3241',
-		)
+	const fetchMenu = async (id) => {
+		// console.log(RESTAURANT_INFO_URL + id)
+		const res = await fetch(RESTAURANT_INFO_URL)
 		const data = await res.json()
 
 		console.log(data)
 		setRestuarantInfo(data?.data)
 	}
 
-	const { name, cuisines, cloudinaryImageId, costForTwo, avgRating } =
-		restuarantInfo.cards[0]?.card?.card?.info
+	if (restuarantInfo === null) return <Shimmer />
 
-	return restuarantInfo === null ? (
-		<Shimmer />
-	) : (
+	const { name, cuisines, cloudinaryImageId, costForTwo, avgRating } =
+		restuarantInfo?.cards[0]?.card?.card?.info
+
+	return (
 		<div>
 			<img src={IMAGE_CDN_URL + cloudinaryImageId} alt='' />
 			<h1> {name} </h1>
