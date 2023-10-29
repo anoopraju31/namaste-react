@@ -8,11 +8,6 @@ const About = () => {
 			<h1> About </h1>
 			<h2> This namaste react series </h2>
 
-			<User
-				name='Anoop Raju (function)'
-				location='adoor function'
-				contact='anoop2019'
-			/>
 			<UserClass
 				name='Anoop Raju (class)'
 				location='adoor class'
