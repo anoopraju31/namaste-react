@@ -24,6 +24,10 @@ class UserClass extends React.Component {
 		this.setState({
 			userInfo: data,
 		})
+
+		this.timer = setInterval(() => {
+			console.log('1s interval')
+		}, 1000)
 	}
 
 	componentDidUpdate() {
@@ -32,6 +36,7 @@ class UserClass extends React.Component {
 
 	componentWillUnmount() {
 		console.log(this.props.name + ' Child Component will unmount!')
+		clearInterval(this.timer)
 	}
 
 	render() {
