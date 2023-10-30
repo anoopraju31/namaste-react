@@ -43,7 +43,7 @@ class About extends React.Component {
 					contact='anoop2019'
 				/>
 
-				<UserClass
+				{/* <UserClass
 					name='Hemanth (class)'
 					location='Tirupati class'
 					contact='hemanth2019'
@@ -58,7 +58,7 @@ class About extends React.Component {
 					name='Anand (class)'
 					location='Alappuzha class'
 					contact='anand2019'
-				/>
+				/> */}
 			</div>
 		)
 	}
