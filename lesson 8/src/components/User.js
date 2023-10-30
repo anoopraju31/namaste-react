@@ -6,6 +6,13 @@ const User = ({ name, location, contact }) => {
 
 	useEffect(() => {
 		// Make API calls
+		const timer = setInterval(() => {
+			console.log('1s interval')
+		}, 1000)
+
+		return () => {
+			clearInterval(timer)
+		}
 	}, [])
 
 	return (

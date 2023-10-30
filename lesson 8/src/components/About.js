@@ -43,12 +43,12 @@ class About extends React.Component {
 					contact='anoop2019'
 				/>
 
-				{/* <UserClass
+				<User
 					name='Hemanth (class)'
 					location='Tirupati class'
 					contact='hemanth2019'
 				/>
-				<UserClass
+				{/*<UserClass
 					name='Kiran (class)'
 					location='Ghaziabad class'
 					contact='Kiran2019'
