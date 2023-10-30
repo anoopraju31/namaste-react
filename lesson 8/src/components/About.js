@@ -39,8 +39,25 @@ class About extends React.Component {
 
 				<UserClass
 					name='Anoop Raju (class)'
-					location='adoor class'
+					location='Adoor class'
 					contact='anoop2019'
+				/>
+
+				<UserClass
+					name='Hemanth (class)'
+					location='Tirupati class'
+					contact='hemanth2019'
+				/>
+				<UserClass
+					name='Kiran (class)'
+					location='Ghaziabad class'
+					contact='Kiran2019'
+				/>
+
+				<UserClass
+					name='Anand (class)'
+					location='Alappuzha class'
+					contact='anand2019'
 				/>
 			</div>
 		)
@@ -48,3 +65,15 @@ class About extends React.Component {
 }
 
 export default About
+
+// - Parent Component Contructor Called!
+// - Parent Component Render!
+// 		- Anoop Raju (class) Child Component Contructor Called!
+// 		- Anoop Raju (class) Child Component Render!
+//
+//  	- Elon Musk (class) Child Component Contructor Called!
+//  	- Elon Musk (class) Child Component Render!
+//
+// 		- Anoop Raju (class) Child Component Did Mount!
+// 		- Elon Musk (class) Child Component Did Mount!
+// - Parent Component Did Mount!
