@@ -6,14 +6,19 @@ const User = ({ name, location, contact }) => {
 
 	useEffect(() => {
 		// Make API calls
-		const timer = setInterval(() => {
-			console.log('1s interval')
-		}, 1000)
+		// const timer = setInterval(() => {
+		// 	console.log('1s interval')
+		// }, 1000)
+
+		console.log('useEffect')
 
 		return () => {
-			clearInterval(timer)
+			// clearInterval(timer)
+			console.log('useEffect return')
 		}
 	}, [])
+
+	console.log('render')
 
 	return (
 		<div className='user-card'>

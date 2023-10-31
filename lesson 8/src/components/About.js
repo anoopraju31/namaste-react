@@ -37,11 +37,11 @@ class About extends React.Component {
 				<h1> About </h1>
 				<h2> This namaste react series </h2>
 
-				<UserClass
+				{/* <UserClass
 					name='Anoop Raju (class)'
 					location='Adoor class'
 					contact='anoop2019'
-				/>
+				/> */}
 
 				<User
 					name='Hemanth (class)'
