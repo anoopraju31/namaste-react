@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useRestuarantList } from '../hooks'
+import { useOnlineStatus, useRestuarantList } from '../hooks'
 import { RestaurantCard, Shimmer } from './'
 
 const Body = () => {
@@ -7,10 +7,19 @@ const Body = () => {
 	const restaurantsList = useRestuarantList()
 	const [filteredRestaurantsList, setFilteredRestaurantsList] = useState([])
 	const [searchText, setSearchText] = useState('')
+	const onlineStatus = useOnlineStatus()
 
 	useEffect(() => {
 		setFilteredRestaurantsList(restaurantsList)
 	}, [restaurantsList])
+
+	if (!onlineStatus)
+		return (
+			<h1>
+				{' '}
+				Looks like you are offline. Please check your internet connection!{' '}
+			</h1>
+		)
 
 	// Conditional Rendering
 	return restaurantsList.length === 0 ? (
