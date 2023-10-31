@@ -6,6 +6,7 @@ import {
 	Body,
 	Contact,
 	Error,
+	Grocery,
 	Header,
 	ResturaantMenu,
 } from './components'
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
 				path: '/contact',
 				element: <Contact />,
 			},
+			{
+				path: '/grocery',
+				element: <Grocery />
+			}
 			{
 				path: '/restuarant/:id',
 				element: <ResturaantMenu />,
