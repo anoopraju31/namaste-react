@@ -1,22 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { FoodCard, Shimmer } from './'
-import { IMAGE_CDN_URL, RESTAURANT_INFO_URL } from '../utills/constants'
 import { useParams } from 'react-router-dom'
+import { useRestuarantInfo } from '../hooks'
+import { FoodCard, Shimmer } from './'
+import { IMAGE_CDN_URL } from '../utills/constants'
 
 const ResturaantMenu = () => {
-	const [restuarantInfo, setRestuarantInfo] = useState(null)
 	const { id } = useParams()
-
-	useEffect(() => {
-		fetchMenu(id)
-	}, [id])
-
-	const fetchMenu = async (id) => {
-		const res = await fetch(RESTAURANT_INFO_URL + id)
-		const data = await res.json()
-
-		setRestuarantInfo(data?.data)
-	}
+	const restuarantInfo = useRestuarantInfo(id)
 
 	if (restuarantInfo === null) return <Shimmer />
 
