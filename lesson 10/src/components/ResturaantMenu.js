@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useRestuarantInfo } from '../hooks'
+import { useRestuarantInfo } from '../src/hooks'
 // import { FoodCard, Shimmer } from './'
 import { IMAGE_CDN_URL } from '../utills/constants'
 import FoodCard from './FoodCard'
