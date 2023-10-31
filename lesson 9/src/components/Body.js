@@ -1,31 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useRestuarantList } from '../hooks'
 import { RestaurantCard, Shimmer } from './'
-import { FETCH_URL } from '../utills/constants'
 
 const Body = () => {
 	// React State Variable
-	const [restaurantsList, setRestaurantsList] = useState([])
+	const restaurantsList = useRestuarantList()
 	const [filteredRestaurantsList, setFilteredRestaurantsList] = useState([])
 	const [searchText, setSearchText] = useState('')
 
 	useEffect(() => {
-		fetchData()
-	}, [])
-
-	const fetchData = async () => {
-		const res = await fetch(FETCH_URL)
-		const data = await res.json()
-
-		setRestaurantsList(
-			data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-				?.restaurants,
-		)
-
-		setFilteredRestaurantsList(
-			data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-				?.restaurants,
-		)
-	}
+		setFilteredRestaurantsList(restaurantsList)
+	}, [restaurantsList])
 
 	// Conditional Rendering
 	return restaurantsList.length === 0 ? (
