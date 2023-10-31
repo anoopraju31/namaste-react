@@ -1,5 +1,5 @@
 import React from 'react'
-import { User } from './'
+import User from './User'
 import UserClass from './UserClass'
 
 // const About = () => {
@@ -37,13 +37,13 @@ class About extends React.Component {
 				<h1> About </h1>
 				<h2> This namaste react series </h2>
 
-				{/* <UserClass
+				{/* <User
 					name='Anoop Raju (class)'
 					location='Adoor class'
 					contact='anoop2019'
 				/> */}
 
-				<User
+				<UserClass
 					name='Hemanth (class)'
 					location='Tirupati class'
 					contact='hemanth2019'

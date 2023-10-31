@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useOnlineStatus, useRestuarantList } from '../hooks'
-import { RestaurantCard, Shimmer } from './'
+// import { RestaurantCard, Shimmer } from './'
+import RestaurantCard from './RestaurantCard'
+import Shimmer from './Shimmer'
 
 const Body = () => {
 	// React State Variable
