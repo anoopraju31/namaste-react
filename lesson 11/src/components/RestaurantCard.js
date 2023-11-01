@@ -28,4 +28,21 @@ const RestaurantCard = ({ resData }) => {
 	)
 }
 
+// Higher Order Component
+
+// input - RestaurantCard =>> RestaurantCardPromoted
+
+export const withVegLabel = (RestaurantCard) => {
+	return (props) => {
+		return (
+			<div className='relative flex'>
+				<label className='absolute top-6 left-6 bg-black text-white px-2 py-1 rounded-2xl'>
+					Veg
+				</label>
+				<RestaurantCard {...props} />
+			</div>
+		)
+	}
+}
+
 export default RestaurantCard

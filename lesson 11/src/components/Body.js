@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useOnlineStatus, useRestuarantList } from '../hooks'
 // import { RestaurantCard, Shimmer } from './'
-import RestaurantCard from './RestaurantCard'
+import RestaurantCard, { withVegLabel } from './RestaurantCard'
 import Shimmer from './Shimmer'
 
 const Body = () => {
@@ -11,8 +11,12 @@ const Body = () => {
 	const [searchText, setSearchText] = useState('')
 	const onlineStatus = useOnlineStatus()
 
+	const VegRestaurantCard = withVegLabel(RestaurantCard)
+
 	useEffect(() => {
 		setFilteredRestaurantsList(restaurantsList)
+
+		console.log(restaurantsList)
 	}, [restaurantsList])
 
 	if (!onlineStatus)
@@ -83,9 +87,13 @@ const Body = () => {
 				</div>
 			</div>
 			<div className='flex flex-wrap '>
-				{filteredRestaurantsList?.map((restaurant) => (
-					<RestaurantCard key={restaurant.info.id} resData={restaurant} />
-				))}
+				{filteredRestaurantsList?.map((restaurant) => {
+					return restaurant.info.veg ? (
+						<VegRestaurantCard key={restaurant.info.id} resData={restaurant} />
+					) : (
+						<RestaurantCard key={restaurant.info.id} resData={restaurant} />
+					)
+				})}
 			</div>
 		</div>
 	)
