@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useOnlineStatus, useRestuarantList } from '../src/hooks'
+import { useOnlineStatus, useRestuarantList } from '../hooks'
 // import { RestaurantCard, Shimmer } from './'
 import RestaurantCard from './RestaurantCard'
 import Shimmer from './Shimmer'

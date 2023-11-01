@@ -10,15 +10,15 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
 // 	ResturaantMenu,
 // } from './components'
 
-import Header from '../components/Header'
-import Contact from '../components/Contact'
-import Error from '../components/Error'
-import Shimmer from '../components/Shimmer'
+import Header from './components/Header'
+import Contact from './components/Contact'
+import Error from './components/Error'
+import Shimmer from './components/Shimmer'
 
-const Grocery = lazy(() => import('../components/Grocery'))
-const About = lazy(() => import('../components/About'))
-const Body = lazy(() => import('../components/Body'))
-const ResturaantMenu = lazy(() => import('../components/ResturaantMenu'))
+const Grocery = lazy(() => import('./components/Grocery'))
+const About = lazy(() => import('./components/About'))
+const Body = lazy(() => import('./components/Body'))
+const ResturaantMenu = lazy(() => import('./components/ResturaantMenu'))
 
 const AppLayout = () => (
 	<div className='app'>
