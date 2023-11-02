@@ -11,7 +11,7 @@ const Header = () => {
 	// console.log('Header Component!')
 
 	return (
-		<div className='container mx-auto flex justify-between'>
+		<div className='max-w-6xl mx-auto flex justify-between px-3 sm:px-0'>
 			<div className='logo-container'>
 				<img className='h-14  object-contain' src={LOGO_URL} alt='logo' />
 			</div>
