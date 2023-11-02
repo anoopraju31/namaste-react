@@ -16,13 +16,14 @@ const ResturaantMenu = () => {
 	const { name, cuisines, cloudinaryImageId, locality, costForTwo, avgRating } =
 		restuarantInfo?.cards[0]?.card?.card?.info
 	const categories =
-		restuarantInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+		restuarantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
 			(c) =>
 				c.card?.card?.['@type'].includes(
 					'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory',
 				),
 		)
 
+	// console.log(categories)
 	console.log(restuarantInfo)
 
 	return (
@@ -44,7 +45,7 @@ const ResturaantMenu = () => {
 			</div>
 
 			<div>
-				{categories.map((category) => (
+				{categories?.map((category) => (
 					<RestaurantCategory
 						key={category?.card?.card?.title}
 						data={category?.card?.card}

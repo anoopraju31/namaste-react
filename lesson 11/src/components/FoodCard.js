@@ -1,10 +1,13 @@
 import React from 'react'
 import { IMAGE_CDN_URL } from '../utills/constants'
 
-const FoodCard = ({ food }) => {
+const FoodCard = ({ food, isBorderBottom }) => {
 	const price = food?.defaultPrice ? food?.defaultPrice : food?.price
 	return (
-		<li className='flex flex-col-reverse sm:flex-row justify-between px-6 py-3 sm:p-3 gap-4'>
+		<li
+			className={`flex flex-col-reverse sm:flex-row justify-between px-6 py-3 sm:p-3 gap-4 ${
+				isBorderBottom && ' border-b border-b-gray-300'
+			}`}>
 			<div className='flex-1'>
 				<h3 className='font-medium mb-[2px]'> {food?.name} </h3>
 				<p className='font-medium'> ₹{price / 100} </p>

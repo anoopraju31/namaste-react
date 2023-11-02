@@ -3,7 +3,7 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import FoodCard from './FoodCard'
 
 const RestaurantCategory = ({ data }) => {
-	const [show, setShow] = useState(false)
+	const [show, setShow] = useState(true)
 	return (
 		<div className=''>
 			{/* Header */}
@@ -17,8 +17,12 @@ const RestaurantCategory = ({ data }) => {
 			{/* Body */}
 			{show && (
 				<ul className='sm:px-6 flex flex-col gap-4'>
-					{data?.itemCards.map((item) => (
-						<FoodCard key={item?.card?.info?.id} food={item?.card?.info} />
+					{data?.itemCards.map((item, idx) => (
+						<FoodCard
+							key={item?.card?.info?.id}
+							food={item?.card?.info}
+							isBorderBottom={data?.itemCards.length - 1 !== idx}
+						/>
 					))}
 				</ul>
 			)}
