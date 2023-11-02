@@ -5,6 +5,7 @@ import { IMAGE_CDN_URL } from '../utills/constants'
 import FoodCard from './FoodCard'
 import Shimmer from './Shimmer'
 import { AiFillStar } from 'react-icons/ai'
+import RestaurantCategory from './RestaurantCategory'
 
 const ResturaantMenu = () => {
 	const { id } = useParams()
@@ -14,22 +15,19 @@ const ResturaantMenu = () => {
 
 	const { name, cuisines, cloudinaryImageId, locality, costForTwo, avgRating } =
 		restuarantInfo?.cards[0]?.card?.card?.info
-	const { itemCards } =
-		restuarantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-			?.card
 	const categories =
-		restuarantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+		restuarantInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
 			(c) =>
 				c.card?.card?.['@type'].includes(
 					'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory',
 				),
 		)
 
-	console.log(categories)
+	console.log(restuarantInfo)
 
 	return (
-		<div className='max-w-5xl mx-auto px-6'>
-			<div className='py-6 flex justify-between border-b border-b-gray-300 mb-10'>
+		<div className='max-w-5xl mx-auto'>
+			<div className='p-6 flex justify-between border-b border-b-gray-300'>
 				<div className='flex flex-col text-gray-600 font-bold text-sm gap-1'>
 					<h1 className='text-3xl text-slate-800'> {name} </h1>
 
@@ -45,13 +43,14 @@ const ResturaantMenu = () => {
 				</div>
 			</div>
 
-			{/* <ul className='food-container'>
-				{itemCards?.map((item) => (
-					<li key={item?.card?.info?.id}>
-						<FoodCard food={item?.card?.info} />
-					</li>
+			<div>
+				{categories.map((category) => (
+					<RestaurantCategory
+						key={category?.card?.card?.title}
+						data={category?.card?.card}
+					/>
 				))}
-			</ul> */}
+			</div>
 		</div>
 	)
 }
