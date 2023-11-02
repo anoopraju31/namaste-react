@@ -9,8 +9,11 @@ const RestaurantCategory = ({ data }) => {
 			{/* Header */}
 			<div
 				onClick={() => setShow((prev) => !prev)}
-				className='p-6 flex justify-between items-center text-xl text-zinc-800 cursor-pointer'>
-				<h2 className='font-bold'> {data?.title} </h2>
+				className='p-6 flex justify-between items-center text-lg text-zinc-800 cursor-pointer'>
+				<h2 className='font-bold'>
+					{' '}
+					{data?.title} ({data?.itemCards.length}){' '}
+				</h2>
 				<div className=''>{show ? <IoIosArrowUp /> : <IoIosArrowDown />}</div>
 			</div>
 
