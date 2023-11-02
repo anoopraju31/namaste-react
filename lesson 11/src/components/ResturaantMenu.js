@@ -11,10 +11,17 @@ const ResturaantMenu = () => {
 	const { id } = useParams()
 	const restuarantInfo = useRestuarantInfo(id)
 
-	if (restuarantInfo === null) return <Shimmer />
+	if (restuarantInfo === null) return <div />
 
-	const { name, cuisines, cloudinaryImageId, locality, costForTwo, avgRating } =
-		restuarantInfo?.cards[0]?.card?.card?.info
+	const {
+		name,
+		cuisines,
+		cloudinaryImageId,
+		locality,
+		costForTwo,
+		avgRating,
+		totalRatingsString,
+	} = restuarantInfo?.cards[0]?.card?.card?.info
 	const categories = restuarantInfo?.cards
 		.filter((card) => card?.groupedCard)[0]
 		?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
@@ -36,11 +43,15 @@ const ResturaantMenu = () => {
 					<p> {locality} </p>
 				</div>
 
-				<div className=''>
-					<div className='flex gap-2 items-center text-lg text-green-500 font-medium'>
+				<div className='flex flex-col items-center gap-1'>
+					<div className='w-fit flex gap-2 items-center text-lg text-green-500 font-medium'>
 						<AiFillStar />
 						<p> {avgRating} </p>
 					</div>
+
+					<p className='text-xs text-gray-600 font-bold'>
+						{totalRatingsString}
+					</p>
 				</div>
 			</div>
 
