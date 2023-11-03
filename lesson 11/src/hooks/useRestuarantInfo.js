@@ -15,7 +15,30 @@ const useRestuarantInfo = (resId) => {
 		setRestuarantInfo(data?.data)
 	}
 
-	return restuarantInfo
+	const info = restuarantInfo?.cards[0]?.card?.card?.info
+	const categories = restuarantInfo?.cards
+		.filter((card) => card?.groupedCard)[0]
+		?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+			c.card?.card?.['@type'].includes(
+				'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory',
+			),
+		)
+	const licenseInfo = restuarantInfo?.cards
+		.filter((card) => card?.groupedCard)[0]
+		?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+			c.card?.card?.['@type'].includes(
+				'type.googleapis.com/swiggy.presentation.food.v2.RestaurantLicenseInfo',
+			),
+		)[0]
+	const address = restuarantInfo?.cards
+		.filter((card) => card?.groupedCard)[0]
+		?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+			c.card?.card?.['@type'].includes(
+				'type.googleapis.com/swiggy.presentation.food.v2.RestaurantAddress',
+			),
+		)[0]
+
+	return { info, categories, licenseInfo, address }
 }
 
 export default useRestuarantInfo
