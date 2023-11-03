@@ -28,7 +28,7 @@ const Body = () => {
 		)
 
 	// Conditional Rendering
-	return restaurantsList.length === 0 ? (
+	return filteredRestaurantsList.length === 0 ? (
 		<Shimmer />
 	) : (
 		<div className='body container mx-auto px-6'>

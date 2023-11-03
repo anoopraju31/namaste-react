@@ -1,13 +1,14 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRestuarantInfo } from '../hooks'
 import { AiFillStar } from 'react-icons/ai'
 import { FaLocationDot } from 'react-icons/fa6'
 import RestaurantCategory from './RestaurantCategory'
-// import { IMAGE_URL } from '../utills/constants'
 
 const ResturaantMenu = () => {
 	const { id } = useParams()
 	const restuarantInfo = useRestuarantInfo(id)
+	const [show, setShow] = useState(0)
 
 	if (restuarantInfo === null) return <div />
 
@@ -65,10 +66,15 @@ const ResturaantMenu = () => {
 			</div>
 
 			<section>
-				{categories?.map((category) => (
+				{categories?.map((category, index) => (
+					// Controlled Component
 					<RestaurantCategory
 						key={category?.card?.card?.title}
 						data={category?.card?.card}
+						show={show === index}
+						handleShow={() =>
+							setShow((prev) => (prev === index ? null : index))
+						}
 					/>
 				))}
 			</section>

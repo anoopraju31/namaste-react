@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import FoodCard from './FoodCard'
 
-const RestaurantCategory = ({ data }) => {
-	const [show, setShow] = useState(true)
+const RestaurantCategory = ({ data, show, handleShow }) => {
 	return (
 		<div className=''>
 			{/* Header */}
 			<div
-				onClick={() => setShow((prev) => !prev)}
+				onClick={handleShow}
 				className='p-6 flex justify-between items-center text-lg text-zinc-800 cursor-pointer'>
 				<h2 className='font-bold'>
 					{' '}
