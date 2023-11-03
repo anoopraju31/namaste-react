@@ -34,13 +34,9 @@ const AppLayout = () => {
 	}, [])
 
 	return (
-		// DEfault User
-		<UserContext.Provider value={{ loggedInUser: username }}>
-			{/* Anoop Raju */}
+		<UserContext.Provider value={{ loggedInUser: username, setUsername }}>
 			<div className='app'>
-				<UserContext.Provider value={{ loggedInUser: 'Elon Musk' }}>
-					<Header />
-				</UserContext.Provider>
+				<Header />
 				<Outlet />
 			</div>
 		</UserContext.Provider>

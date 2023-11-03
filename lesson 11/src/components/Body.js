@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useOnlineStatus, useRestuarantList } from '../hooks'
 // import { RestaurantCard, Shimmer } from './'
 import RestaurantCard, { withVegLabel } from './RestaurantCard'
 import Shimmer from './Shimmer'
+import UserContext from '../context/UserContext'
 
 const Body = () => {
 	// React State Variable
@@ -10,6 +11,7 @@ const Body = () => {
 	const [filteredRestaurantsList, setFilteredRestaurantsList] = useState([])
 	const [searchText, setSearchText] = useState('')
 	const onlineStatus = useOnlineStatus()
+	const { loggedInUser, setUsername } = useContext(UserContext)
 
 	const VegRestaurantCard = withVegLabel(RestaurantCard)
 
@@ -84,6 +86,18 @@ const Body = () => {
 						{' '}
 						Reset
 					</button>
+				</div>
+
+				<div className='search m-4 p-4 flex gap-2 items-center'>
+					<label htmlFor='username'> Username </label>
+					<input
+						type='text'
+						id='username'
+						name='username'
+						className='border border-black p-2'
+						value={loggedInUser}
+						onChange={(e) => setUsername(e.target.value)}
+					/>
 				</div>
 			</div>
 			<div className='flex flex-wrap '>
