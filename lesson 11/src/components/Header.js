@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { LOGO_URL } from '../utills/constants'
 import { Link } from 'react-router-dom'
 import { useOnlineStatus } from '../hooks'
+import UserContext from '../context/UserContext'
 
 const Header = () => {
 	const [btnName, setBtnName] = useState('Login')
 	const [navOpen, setNavOpen] = useState(false)
 	const onlineStatus = useOnlineStatus()
-
-	// console.log('Header Component!')
+	const { loggedInUser } = useContext(UserContext)
 
 	return (
 		<div className='max-w-6xl mx-auto flex justify-between px-3 sm:px-6'>
@@ -20,7 +20,7 @@ const Header = () => {
 				<ul
 					className={`w-72 lg:w-full absolute lg:static ${
 						navOpen ? 'top-16 right-0' : '-top-[100vh] right-0'
-					} flex flex-col lg:flex-row gap-6 p-6 rounded-lg bg-green-500 lg:bg-transparent transition-all duration-500 ease-in-out`}>
+					} flex flex-col lg:flex-row gap-6 p-6 rounded-lg bg-green-500 lg:bg-transparent transition-all duration-500 ease-in-out z-50`}>
 					<li>Online Status: {onlineStatus ? '✅' : '❌'} </li>
 					<li>
 						<Link to='/'> Home </Link>
@@ -44,6 +44,7 @@ const Header = () => {
 							{btnName}
 						</button>
 					</li>
+					<li className='font-bold'> {loggedInUser} </li>
 				</ul>
 
 				<button
