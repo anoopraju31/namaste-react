@@ -1,14 +1,7 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
-// import {
-// 	About,
-// 	Body,
-// 	Contact,
-// 	Error,
-// 	Header,
-// 	ResturaantMenu,
-// } from './components'
+import { Provider } from 'react-redux'
 
 import Header from './components/Header'
 import Contact from './components/Contact'
@@ -34,12 +27,14 @@ const AppLayout = () => {
 	}, [])
 
 	return (
-		<UserContext.Provider value={{ loggedInUser: username, setUsername }}>
-			<div className='app'>
-				<Header />
-				<Outlet />
-			</div>
-		</UserContext.Provider>
+		<Provider store={store}>
+			<UserContext.Provider value={{ loggedInUser: username, setUsername }}>
+				<div className='app'>
+					<Header />
+					<Outlet />
+				</div>
+			</UserContext.Provider>
+		</Provider>
 	)
 }
 
