@@ -39,3 +39,11 @@
 ## React Hooks
 - useState - to create superpowerfull react variables
 - useEffect 
+
+## Redux Toolkit
+- install @redux-toolkit & react-redux
+- Build our own store
+- Connect the store to our app
+- Create a slice
+- dispatch an action
+- read the data using selector
