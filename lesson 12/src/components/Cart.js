@@ -10,15 +10,8 @@ const Cart = () => {
 		dispatch(clearCart())
 	}
 
-	if (cartItems.length === 0)
-		return (
-			<div className='max-w-3xl h-96 mx-auto flex justify-center items-center'>
-				<h1 className='text-3xl font-bold'> Cart is empty </h1>
-			</div>
-		)
-
 	return (
-		<div className='max-w-3xl mx-auto'>
+		<div className='max-w-3xl mx-auto py-6'>
 			<h1 className='text-2xl font-bold text-center mb-4'> Cart </h1>
 
 			<div className='my-6'>
@@ -34,13 +27,19 @@ const Cart = () => {
 				</ul>
 			</div>
 
-			<div className='flex justify-end'>
-				<button
-					onClick={handleClear}
-					className='px-6 py-2 bg-gray-200 text-xl font-medium rounded-lg'>
-					clear
-				</button>
-			</div>
+			{cartItems.length === 0 && (
+				<h2 className='text-xl text-center font-medium'> Cart is empty </h2>
+			)}
+
+			{cartItems.length !== 0 && (
+				<div className='flex justify-end'>
+					<button
+						onClick={handleClear}
+						className='px-6 py-2 bg-gray-200 text-xl font-medium rounded-lg'>
+						clear
+					</button>
+				</div>
+			)}
 		</div>
 	)
 }
