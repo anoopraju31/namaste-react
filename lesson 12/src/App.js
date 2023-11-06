@@ -9,6 +9,7 @@ import Error from './components/Error'
 import Shimmer from './components/Shimmer'
 import UserContext from './context/UserContext'
 import store from './reducers/store'
+import Cart from './components/Cart'
 
 const Grocery = lazy(() => import('./components/Grocery'))
 const About = lazy(() => import('./components/About'))
@@ -79,6 +80,10 @@ const appRouter = createBrowserRouter([
 						<ResturaantMenu />
 					</Suspense>
 				),
+			},
+			{
+				path: '/cart',
+				element: <Cart />,
 			},
 		],
 		errorElement: <Error />,
