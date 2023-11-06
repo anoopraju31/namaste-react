@@ -1,8 +1,16 @@
 import React from 'react'
 import { IMAGE_CDN_URL } from '../utills/constants'
+import { addItem } from '../reducers/cartSlice'
+import { useDispatch } from 'react-redux'
 
 const FoodCard = ({ food, isBorderBottom }) => {
 	const price = food?.defaultPrice ? food?.defaultPrice : food?.price
+	const dispatch = useDispatch()
+
+	const handleAddItem = () => {
+		dispatch(addItem(food?.name))
+	}
+
 	return (
 		<li
 			className={`group flex justify-between items-center px-6 py-3 sm:px-0 gap-4 ${
@@ -22,7 +30,9 @@ const FoodCard = ({ food, isBorderBottom }) => {
 				/>
 
 				<div className='hidden group-hover:flex absolute top-0 left-0 right-0 bottom-0 bg-black/5 justify-center items-center'>
-					<button className='bg-white text-xs flex justify-center items-center text-green-500 font-bold uppercase px-3 py-1 rounded-md'>
+					<button
+						onClick={handleAddItem}
+						className='bg-white text-xs flex justify-center items-center text-green-500 font-bold uppercase px-3 py-1 rounded-md'>
 						add
 					</button>
 				</div>
