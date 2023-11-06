@@ -1,6 +1,6 @@
 import React from 'react'
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { IMAGE_CDN_URL } from '../utills/constants'
+import AddCounter from './AddCounter'
 
 const CartItem = ({ food, quantity, isBorderBottom }) => {
 	const price = food?.defaultPrice ? food?.defaultPrice : food?.price
@@ -22,15 +22,7 @@ const CartItem = ({ food, quantity, isBorderBottom }) => {
 				<p className='font-medium'> ₹{price / 100} </p>
 			</div>
 
-			<div className='text-xl flex gap-4 justify-center items-center'>
-				<button className='w-9 h-9 bg-gray-200 flex justify-center items-center rounded-md'>
-					<AiOutlineMinus />
-				</button>
-				<p> {quantity} </p>
-				<button className='w-9 h-9 bg-gray-200 flex justify-center items-center rounded-md'>
-					<AiOutlinePlus />{' '}
-				</button>
-			</div>
+			<AddCounter quantity={quantity} />
 		</li>
 	)
 }
