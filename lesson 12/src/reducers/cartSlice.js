@@ -24,9 +24,19 @@ const cartSlice = createSlice({
 
 			state.quantity += 1
 		},
-		removeItem: (state) => {
-			state.quantity -= 1
-			state.items.pop()
+		removeItem: (state, action) => {
+			const index = state.items.findIndex(
+				(item) => item.food.id === action.payload.id,
+			)
+
+			if (index !== -1) {
+				state.quantity -= 1
+
+				if (state.items[index].quantity === 1) state.items.splice(index, 1)
+				else {
+					state.items[index].quantity -= 1
+				}
+			}
 		},
 		clearCart: (state) => {
 			state.items.length = 0
