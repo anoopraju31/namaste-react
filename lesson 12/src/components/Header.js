@@ -13,7 +13,7 @@ const Header = () => {
 	const { loggedInUser } = useContext(UserContext)
 
 	// Subscribing to the store using a selector
-	const cartItems = useSelector((state) => state.cart.items)
+	const cartQuantity = useSelector((state) => state.cart.quantity)
 
 	return (
 		<div className='max-w-6xl mx-auto flex justify-between px-3 sm:px-6'>
@@ -44,10 +44,7 @@ const Header = () => {
 							to='/cart'
 							className='px-4 font-bold relative flex items-center'>
 							<FaCartShopping />
-							<span className='absolute -top-2 right-1'>
-								{' '}
-								{cartItems.length}{' '}
-							</span>{' '}
+							<span className='absolute -top-2 right-1'>{cartQuantity}</span>
 						</Link>
 					</li>
 					<li>
