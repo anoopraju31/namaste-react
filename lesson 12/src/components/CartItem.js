@@ -22,7 +22,7 @@ const CartItem = ({ food, quantity, isBorderBottom }) => {
 				<p className='font-medium'> ₹{price / 100} </p>
 			</div>
 
-			<AddCounter quantity={quantity} />
+			<AddCounter food={food} quantity={quantity} />
 		</li>
 	)
 }
