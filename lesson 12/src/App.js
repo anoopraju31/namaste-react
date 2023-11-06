@@ -8,6 +8,7 @@ import Contact from './components/Contact'
 import Error from './components/Error'
 import Shimmer from './components/Shimmer'
 import UserContext from './context/UserContext'
+import store from './reducers/store'
 
 const Grocery = lazy(() => import('./components/Grocery'))
 const About = lazy(() => import('./components/About'))

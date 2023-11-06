@@ -2,13 +2,18 @@ import React, { useContext, useState } from 'react'
 import { LOGO_URL } from '../utills/constants'
 import { Link } from 'react-router-dom'
 import { useOnlineStatus } from '../hooks'
+import { FaCartShopping } from 'react-icons/fa6'
 import UserContext from '../context/UserContext'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
 	const [btnName, setBtnName] = useState('Login')
 	const [navOpen, setNavOpen] = useState(false)
 	const onlineStatus = useOnlineStatus()
 	const { loggedInUser } = useContext(UserContext)
+
+	// Subscribing to the store using a selector
+	const cartItems = useSelector((state) => state.cart.items)
 
 	return (
 		<div className='max-w-6xl mx-auto flex justify-between px-3 sm:px-6'>
@@ -34,7 +39,13 @@ const Header = () => {
 					<li>
 						<Link to='/grocery'> Grocery </Link>
 					</li>
-					<li> Cart </li>
+					<li className='px-4 font-bold relative flex items-center'>
+						<FaCartShopping />
+						<span className='absolute -top-2 right-1'>
+							{' '}
+							{cartItems.length}{' '}
+						</span>
+					</li>
 					<li>
 						<button
 							onClick={() => {
