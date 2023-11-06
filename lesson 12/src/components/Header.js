@@ -39,12 +39,16 @@ const Header = () => {
 					<li>
 						<Link to='/grocery'> Grocery </Link>
 					</li>
-					<li className='px-4 font-bold relative flex items-center'>
-						<FaCartShopping />
-						<span className='absolute -top-2 right-1'>
-							{' '}
-							{cartItems.length}{' '}
-						</span>
+					<li>
+						<Link
+							to='/cart'
+							className='px-4 font-bold relative flex items-center'>
+							<FaCartShopping />
+							<span className='absolute -top-2 right-1'>
+								{' '}
+								{cartItems.length}{' '}
+							</span>{' '}
+						</Link>
 					</li>
 					<li>
 						<button
