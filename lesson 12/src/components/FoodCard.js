@@ -8,7 +8,7 @@ const FoodCard = ({ food, isBorderBottom }) => {
 	const dispatch = useDispatch()
 
 	const handleAddItem = () => {
-		dispatch(addItem(food?.name))
+		dispatch(addItem(food))
 	}
 
 	return (
