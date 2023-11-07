@@ -47,3 +47,8 @@
 - Create a slice
 - dispatch an action
 - read the data using selector
+
+## Types of testing (developer)
+ - Unit testing
+ - Integration Testing
+ - End to End Testing - e2e testing 
