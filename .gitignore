@@ -1,3 +1,4 @@
 /lesson */node_modules
 /lesson */.parcel-cache
 /lesson */dist
+/lesson */coverage
