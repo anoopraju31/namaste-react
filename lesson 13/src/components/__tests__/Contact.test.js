@@ -3,7 +3,7 @@ import Contact from '../Contact'
 import '@testing-library/jest-dom'
 
 describe('Contact Page test cases', () => {
-	test('Should load contact us component', () => {
+	it('Should load contact us component', () => {
 		render(<Contact />)
 
 		const heading = screen.getByRole('heading')
@@ -12,7 +12,7 @@ describe('Contact Page test cases', () => {
 		expect(heading).toBeInTheDocument()
 	})
 
-	test('Should load button inside Contact component', () => {
+	it('Should load button inside Contact component', () => {
 		render(<Contact />)
 
 		const button = screen.getByRole('button')
@@ -21,7 +21,7 @@ describe('Contact Page test cases', () => {
 		expect(button).toBeInTheDocument()
 	})
 
-	test('Should load input name inside Contact component', () => {
+	it('Should load input name inside Contact component', () => {
 		render(<Contact />)
 
 		const inputName = screen.getByPlaceholderText('name')
@@ -30,7 +30,7 @@ describe('Contact Page test cases', () => {
 		expect(inputName).toBeInTheDocument()
 	})
 
-	test('Should load 2 input boxes inside Contact component', () => {
+	it('Should load 2 input boxes inside Contact component', () => {
 		render(<Contact />)
 
 		// Querying
