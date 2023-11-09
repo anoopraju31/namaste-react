@@ -19,3 +19,12 @@ test('Should load button inside Contact component', () => {
 	// Assertion
 	expect(button).toBeInTheDocument()
 })
+
+test('Should load input name inside Contact component', () => {
+	render(<Contact />)
+
+	const inputName = screen.getByPlaceholderText('name')
+
+	// Assertion
+	expect(inputName).toBeInTheDocument()
+})
