@@ -44,13 +44,14 @@ const Header = () => {
 							to='/cart'
 							className='px-4 font-bold relative flex items-center'>
 							<FaCartShopping />
+							<span className='sr-only'>cart</span>
 							<span className='absolute -top-2 right-1'>{cartQuantity}</span>
 						</Link>
 					</li>
 					<li>
 						<button
 							onClick={() => {
-								setBtnName((prev) => (prev === 'login' ? 'Logout' : 'login'))
+								setBtnName((prev) => (prev === 'Login' ? 'Logout' : 'Login'))
 							}}
 							className='login-button'>
 							{btnName}
