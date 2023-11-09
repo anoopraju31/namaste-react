@@ -28,3 +28,15 @@ test('Should load input name inside Contact component', () => {
 	// Assertion
 	expect(inputName).toBeInTheDocument()
 })
+
+test('Should load 2 input boxes inside Contact component', () => {
+	render(<Contact />)
+
+	// Querying
+	const inputBoxes = screen.getAllByRole('textbox')
+
+	// console.log(inputBoxes.length)
+
+	// Assertion
+	expect(inputBoxes.length).toBe(2)
+})
