@@ -24,6 +24,21 @@ describe('Header Component Testing', () => {
 		expect(loginButton).toBeInTheDocument()
 	})
 
+	it('Should render Header Component with cart', () => {
+		render(
+			<BrowserRouter>
+				<Provider store={store}>
+					<Header />
+				</Provider>
+			</BrowserRouter>,
+		)
+
+		// Querying
+		const cart = screen.getByText('cart')
+
+		expect(cart).toBeInTheDocument()
+	})
+
 	it('Should render Header Component with cart items 0', () => {
 		render(
 			<BrowserRouter>
