@@ -16,9 +16,11 @@ describe('Header Component Testing', () => {
 		)
 
 		// Querying
-		const loginButton = screen.getAllByRole('button')
+		const loginButton = screen.getByRole('button', { name: 'Login' })
 
-		// assertion
-		expect(loginButton.length).toBe(2)
+		// Alternative way
+		// const loginButton = screen.getByText('Login')
+
+		expect(loginButton).toBeInTheDocument()
 	})
 })
