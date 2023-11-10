@@ -17,8 +17,6 @@ const Body = () => {
 
 	useEffect(() => {
 		setFilteredRestaurantsList(restaurantsList)
-
-		console.log(restaurantsList)
 	}, [restaurantsList])
 
 	if (!onlineStatus)
