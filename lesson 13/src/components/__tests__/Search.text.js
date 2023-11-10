@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
@@ -24,7 +24,12 @@ describe('Search functionality testing', () => {
 		)
 
 		const searchBtn = screen.getByRole('button', { name: 'search' })
+		const searchInput = screen.getByTestId('search input')
+
+		fireEvent.change(searchInput, { target: { value: 'burger' } })
+		fireEvent.click(searchBtn)
 
 		expect(searchBtn).toBeInTheDocument()
+		expect(searchInput).toBeInTheDocument()
 	})
 })
