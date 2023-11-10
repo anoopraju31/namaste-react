@@ -33,10 +33,10 @@ describe('Search functionality testing', () => {
 		fireEvent.change(searchInput, { target: { value: 'burger' } })
 		fireEvent.click(searchBtn)
 
-		const restaurantCards = screen.getAllByTestId('restaurant card')
+		const cardsAfterSearch = screen.getAllByTestId('restaurant card')
 
 		expect(searchBtn).toBeInTheDocument()
 		expect(searchInput).toBeInTheDocument()
-		expect(restaurantCards.length).toBe(2)
+		expect(cardsAfterSearch.length).toBe(2)
 	})
 })
