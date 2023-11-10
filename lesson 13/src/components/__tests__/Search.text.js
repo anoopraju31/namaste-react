@@ -23,6 +23,10 @@ describe('Search functionality testing', () => {
 			),
 		)
 
+		const cardsBeforeSearch = screen.getAllByTestId('restaurant card')
+
+		expect(cardsBeforeSearch.length).toBe(9)
+
 		const searchBtn = screen.getByRole('button', { name: 'search' })
 		const searchInput = screen.getByTestId('search input')
 
