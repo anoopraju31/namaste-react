@@ -39,4 +39,27 @@ describe('Search functionality testing', () => {
 		expect(searchInput).toBeInTheDocument()
 		expect(cardsAfterSearch.length).toBe(2)
 	})
+
+	it('Should filter Top Rated Restuarants', async () => {
+		await act(() => {
+			render(
+				<BrowserRouter>
+					<Body />
+				</BrowserRouter>,
+			)
+		})
+
+		const cardsBeforeSearch = screen.getAllByTestId('restaurant card')
+
+		expect(cardsBeforeSearch.length).toBe(9)
+
+		const topRatedRestaurantBtn = screen.getByRole('button', {
+			name: 'Top Rated Restuarants',
+		})
+		fireEvent.click(topRatedRestaurantBtn)
+
+		const cardsAfterSearch = screen.getAllByTestId('restaurant card')
+
+		expect(cardsAfterSearch.length).toBe(7)
+	})
 })
