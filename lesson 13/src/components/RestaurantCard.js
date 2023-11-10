@@ -12,6 +12,7 @@ const RestaurantCard = ({ resData }) => {
 
 	return (
 		<Link
+			data-testid='restaurant card'
 			to={`/restuarant/${resData.info.id}`}
 			className='m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200'
 			style={styleCard}>

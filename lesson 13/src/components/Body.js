@@ -58,7 +58,6 @@ const Body = () => {
 										.includes(searchText.toLowerCase()),
 							)
 
-							console.log(filtered)
 							setFilteredRestaurantsList(filtered)
 						}}>
 						{' '}
