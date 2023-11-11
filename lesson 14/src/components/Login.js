@@ -6,18 +6,22 @@ const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
 	const [errorMessage, setErrorMessage] = useState()
 
-	const emailRef = useRef()
-	const passwordRef = useRef()
+	const nameRef = useRef(null)
+	const emailRef = useRef(null)
+	const passwordRef = useRef(null)
 
 	const handleButtonClick = (e) => {
 		e.preventDefault()
 
-		const email = emailRef.current.value
-		const password = passwordRef.current.value
+		const name = nameRef?.current?.value
+		const email = emailRef?.current?.value
+		const password = passwordRef?.current?.value
 
 		// Validate the form data
-		const message = checkValidateData(email, password)
+		const message = checkValidateData(name, email, password)
 		setErrorMessage(message)
+
+		if (message) return
 
 		// Sign In / Sign Up
 	}
@@ -50,6 +54,7 @@ const Login = () => {
 					{!isSignInForm && (
 						<input
 							type='text'
+							ref={nameRef}
 							placeholder='Full Name'
 							className='w-full mb-4 px-4 py-2 bg-zinc-700 outline-none rounded-md'
 						/>
