@@ -18,6 +18,10 @@ describe('Search functionality testing', () => {
 		console.log('Before All')
 	})
 
+	beforeEach(() => {
+		console.log('Before Each')
+	})
+
 	it('Should render the Body component with Search field', async () => {
 		await act(async () =>
 			render(
