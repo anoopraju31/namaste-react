@@ -14,6 +14,10 @@ global.fetch = jest.fn(() => {
 })
 
 describe('Search functionality testing', () => {
+	beforeAll(() => {
+		console.log('Before All')
+	})
+
 	it('Should render the Body component with Search field', async () => {
 		await act(async () =>
 			render(
