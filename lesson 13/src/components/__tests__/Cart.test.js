@@ -4,8 +4,10 @@ import '@testing-library/jest-dom'
 import { Provider } from 'react-redux'
 
 import ResturaantMenu from '../ResturaantMenu'
+import Header from '../Header'
 import { restaurantMenu } from '../mocks/restaurantMenu'
 import store from '../../reducers/store'
+import { BrowserRouter } from 'react-router-dom'
 
 global.fetch = jest.fn(() => {
 	return Promise.resolve({
@@ -35,9 +37,12 @@ describe('Cart Functionality Testing', () => {
 	it('Should load restaurant menu component', async () => {
 		await act(async () =>
 			render(
-				<Provider store={store}>
-					<ResturaantMenu />
-				</Provider>,
+				<BrowserRouter>
+					<Provider store={store}>
+						<Header />
+						<ResturaantMenu />
+					</Provider>
+				</BrowserRouter>,
 			),
 		)
 
@@ -52,5 +57,13 @@ describe('Cart Functionality Testing', () => {
 		})
 
 		expect(foodImg).toBeInTheDocument()
+
+		fireEvent.mouseOver(foodImg)
+
+		const addBtn = screen.getByTestId('add Podi Masala Dosa (Breakfast)')
+
+		expect(addBtn).toBeInTheDocument()
+
+		fireEvent.click(addBtn)
 	})
 })

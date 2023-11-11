@@ -31,6 +31,7 @@ const FoodCard = ({ food, isBorderBottom }) => {
 
 				<div className='hidden group-hover:flex absolute top-0 left-0 right-0 bottom-0 bg-black/5 justify-center items-center'>
 					<button
+						data-testid={'add ' + food?.name}
 						onClick={handleAddItem}
 						className='bg-white text-xs flex justify-center items-center text-green-500 font-bold uppercase px-3 py-1 rounded-md'>
 						add
