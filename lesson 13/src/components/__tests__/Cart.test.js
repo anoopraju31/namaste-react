@@ -78,5 +78,10 @@ describe('Cart Functionality Testing', () => {
 		expect(cartQuantityAfterClick).toBe('1')
 
 		expect(screen.getAllByTestId('food item').length).toBe(1)
+
+		const clearCartBtn = screen.getByRole('button', { name: 'clear' })
+		fireEvent.click(clearCartBtn)
+
+		expect(screen.getByText('Cart is empty')).toBeInTheDocument()
 	})
 })

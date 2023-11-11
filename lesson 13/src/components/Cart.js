@@ -34,6 +34,7 @@ const Cart = () => {
 			{cartItems.length !== 0 && (
 				<div className='flex justify-end'>
 					<button
+						data-testid='clear cart'
 						onClick={handleClear}
 						className='px-6 py-2 bg-gray-200 text-xl font-medium rounded-lg'>
 						clear
