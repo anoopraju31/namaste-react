@@ -1,8 +1,23 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Header from './Header'
+import { checkValidateData } from '../utills/validation'
 
 const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
+	const emailRef = useRef()
+	const passwordRef = useRef()
+
+	const handleButtonClick = (e) => {
+		e.preventDefault()
+
+		const email = emailRef.current.value
+		const password = passwordRef.current.value
+
+		// Validate the form data
+		const message = checkValidateData(email, password)
+
+		console.log(message)
+	}
 
 	const toggleSignInForm = () => {
 		setIsSignInForm((prev) => !prev)
@@ -40,6 +55,7 @@ const Login = () => {
 					{/* Email */}
 					<input
 						type='text'
+						ref={emailRef}
 						placeholder='Email Address'
 						className='w-full mb-4 px-4 py-2 bg-zinc-700 outline-none rounded-md'
 					/>
@@ -47,30 +63,38 @@ const Login = () => {
 					{/* Password */}
 					<input
 						type='password'
+						ref={passwordRef}
 						placeholder='Password'
 						className='w-full mb-4 px-4 py-2 bg-zinc-700 outline-none rounded-md'
 					/>
 
 					<div className='mt-4 mb-8 '>
 						{/* Submit Button */}
-						<button className='w-full mb-2 px-6 py-2 font-medium bg-red-600 rounded-md'>
+						<button
+							onClick={handleButtonClick}
+							className='w-full mb-2 px-6 py-2 font-medium bg-red-600 rounded-md'>
 							{isSignInForm ? 'Sign In' : 'Sign Up'}
 						</button>
 
 						<div className='flex justify-between text-xs text-zinc-400'>
 							<div className='flex items-center gap-1'>
-								<input type='checkbox' id='remember-me' checked />
+								<input type='checkbox' id='remember-me' />
 								<label htmlFor='remember-me'> Remember me </label>
 							</div>
 
-							<p className='border-b border-b-transparent hover:border-b-zinc-400'>
+							<p
+								tabIndex={0}
+								className='border-b border-b-transparent hover:border-b-zinc-400'>
 								Need help?
 							</p>
 						</div>
 					</div>
+
+					{/* Switch between sign in and sign up page */}
 					<p className='text-sm text-zinc-400'>
 						{isSignInForm ? 'New to Netflix? ' : 'Already registered? '}
 						<span
+							tabIndex={0}
 							onClick={toggleSignInForm}
 							className='text-white hover:border-b hover:border-b-white'>
 							{isSignInForm ? 'Sign up now' : 'Sign in now'}
