@@ -4,6 +4,8 @@ import { checkValidateData } from '../utills/validation'
 
 const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
+	const [errorMessage, setErrorMessage] = useState()
+
 	const emailRef = useRef()
 	const passwordRef = useRef()
 
@@ -15,8 +17,9 @@ const Login = () => {
 
 		// Validate the form data
 		const message = checkValidateData(email, password)
+		setErrorMessage(message)
 
-		console.log(message)
+		// Sign In / Sign Up
 	}
 
 	const toggleSignInForm = () => {
@@ -67,6 +70,10 @@ const Login = () => {
 						placeholder='Password'
 						className='w-full mb-4 px-4 py-2 bg-zinc-700 outline-none rounded-md'
 					/>
+
+					{errorMessage !== null && (
+						<p className='text-sm text-red-500'> {errorMessage} </p>
+					)}
 
 					<div className='mt-4 mb-8 '>
 						{/* Submit Button */}
