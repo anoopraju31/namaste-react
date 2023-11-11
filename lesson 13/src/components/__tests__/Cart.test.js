@@ -46,6 +46,11 @@ describe('Cart Functionality Testing', () => {
 			),
 		)
 
+		const cartQuantityBeforeClick =
+			screen.getByTestId('cart-quantity').innerHTML
+
+		expect(cartQuantityBeforeClick).toBe('0')
+
 		const foodItem = screen.getByRole('heading', {
 			name: 'Podi Masala Dosa (Breakfast)',
 		})
@@ -66,8 +71,8 @@ describe('Cart Functionality Testing', () => {
 
 		fireEvent.click(addBtn)
 
-		const cartQuantity = screen.getByTestId('cart-quantity').innerHTML
+		const cartQuantityAfterClick = screen.getByTestId('cart-quantity').innerHTML
 
-		expect(cartQuantity).toBe('1')
+		expect(cartQuantityAfterClick).toBe('1')
 	})
 })
