@@ -22,6 +22,14 @@ describe('Search functionality testing', () => {
 		console.log('Before Each')
 	})
 
+	afterAll(() => {
+		console.log('After All')
+	})
+
+	afterEach(() => {
+		console.log('After Each')
+	})
+
 	it('Should render the Body component with Search field', async () => {
 		await act(async () =>
 			render(
