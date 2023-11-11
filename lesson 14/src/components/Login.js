@@ -14,22 +14,22 @@ const Login = () => {
 				/>
 			</div>
 
-			<div className='absolute top-0 left-0 right-0 w-full h-screen flex justify-center items-center bg-black sm:bg-transparent'>
-				<form className='w-full sm:w-96 p-6 rounded-xl flex flex-col bg-black text-white'>
+			<div className='absolute top-0 left-0 right-0 w-full h-screen flex justify-center sm:items-center bg-black sm:bg-transparent'>
+				<form className='w-full sm:w-96 my-20 sm:mt-0 p-6 sm:rounded-xl flex flex-col bg-black/75 text-white'>
 					<h1 className='font-medium text-3xl pb-8'> Sign In </h1>
 					<input
 						type='text'
 						placeholder='Email Address'
-						className='w-full mb-4 px-6 py-2 bg-zinc-700'
+						className='w-full mb-4 px-6 py-2 bg-zinc-700 outline-none'
 					/>
 
 					<input
 						type='password'
 						placeholder='Password'
-						className='w-full mb-4 px-6 py-2 bg-zinc-700'
+						className='w-full mb-4 px-6 py-2 bg-zinc-700 outline-none'
 					/>
 
-					<button className='w-full my-4 px-6 py-2 font-medium bg-red-700 rounded-lg'>
+					<button className='w-full my-4 px-6 py-2 font-medium bg-red-600 rounded-lg'>
 						{' '}
 						Sign In{' '}
 					</button>
