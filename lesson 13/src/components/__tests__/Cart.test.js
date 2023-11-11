@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 
 import ResturaantMenu from '../ResturaantMenu'
 import Header from '../Header'
+import Cart from '../Cart'
 import { restaurantMenu } from '../mocks/restaurantMenu'
 import store from '../../reducers/store'
 import { BrowserRouter } from 'react-router-dom'
@@ -41,6 +42,7 @@ describe('Cart Functionality Testing', () => {
 					<Provider store={store}>
 						<Header />
 						<ResturaantMenu />
+						<Cart />
 					</Provider>
 				</BrowserRouter>,
 			),
@@ -74,5 +76,7 @@ describe('Cart Functionality Testing', () => {
 		const cartQuantityAfterClick = screen.getByTestId('cart-quantity').innerHTML
 
 		expect(cartQuantityAfterClick).toBe('1')
+
+		expect(screen.getAllByTestId('food item').length).toBe(1)
 	})
 })

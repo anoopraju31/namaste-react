@@ -7,6 +7,7 @@ const CartItem = ({ food, quantity, isBorderBottom }) => {
 
 	return (
 		<li
+			data-testid='food item'
 			className={`group flex justify-between px-6 py-3 sm:px-0 gap-4 ${
 				isBorderBottom && ' border-b border-b-gray-300'
 			}`}>
