@@ -26,7 +26,7 @@ const FoodCard = ({ food, isBorderBottom }) => {
 				<img
 					className='rounded-lg'
 					src={IMAGE_CDN_URL + food?.imageId}
-					alt=''
+					alt={food?.name}
 				/>
 
 				<div className='hidden group-hover:flex absolute top-0 left-0 right-0 bottom-0 bg-black/5 justify-center items-center'>

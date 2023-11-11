@@ -30,9 +30,27 @@ describe('Cart Functionality Testing', () => {
 		})
 
 		expect(restaurantName.length).toBe(2)
+	})
 
-		const accordionHeader = screen.getByText('Upma (250 Gms)')
+	it('Should load restaurant menu component', async () => {
+		await act(async () =>
+			render(
+				<Provider store={store}>
+					<ResturaantMenu />
+				</Provider>,
+			),
+		)
 
-		expect(accordionHeader).toBeInTheDocument()
+		const foodItem = screen.getByRole('heading', {
+			name: 'Podi Masala Dosa (Breakfast)',
+		})
+
+		expect(foodItem).toBeInTheDocument()
+
+		const foodImg = screen.getByRole('img', {
+			name: 'Podi Masala Dosa (Breakfast)',
+		})
+
+		expect(foodImg).toBeInTheDocument()
 	})
 })
