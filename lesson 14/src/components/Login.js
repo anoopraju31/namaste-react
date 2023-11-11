@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidateData } from '../utills/validation'
+import { LOGIN_BG } from '../utills/constants'
 
 const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
@@ -37,8 +38,8 @@ const Login = () => {
 			<div className='w-full h-screen'>
 				<img
 					className='w-full h-full object-cover '
-					src='https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg'
-					alt=''
+					src={LOGIN_BG}
+					alt='login background'
 				/>
 			</div>
 
