@@ -14,21 +14,21 @@ global.fetch = jest.fn(() => {
 })
 
 describe('Search functionality testing', () => {
-	beforeAll(() => {
-		console.log('Before All')
-	})
+	// beforeAll(() => {
+	// 	console.log('Before All')
+	// })
 
-	beforeEach(() => {
-		console.log('Before Each')
-	})
+	// beforeEach(() => {
+	// 	console.log('Before Each')
+	// })
 
-	afterAll(() => {
-		console.log('After All')
-	})
+	// afterAll(() => {
+	// 	console.log('After All')
+	// })
 
-	afterEach(() => {
-		console.log('After Each')
-	})
+	// afterEach(() => {
+	// 	console.log('After Each')
+	// })
 
 	it('Should render the Body component with Search field', async () => {
 		await act(async () =>
