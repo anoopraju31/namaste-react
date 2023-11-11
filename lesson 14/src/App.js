@@ -1,11 +1,8 @@
 import React from 'react'
+import Body from './components/Body'
 
 const App = () => {
-	return (
-		<div className='text-3xl font-bold underline'>
-			Namaste Everyone, let's build Netflix GPT.
-		</div>
-	)
+	return <Body />
 }
 
 export default App
