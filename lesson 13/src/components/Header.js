@@ -45,7 +45,11 @@ const Header = () => {
 							className='px-4 font-bold relative flex items-center'>
 							<FaCartShopping />
 							<span className='sr-only'>cart</span>
-							<span className='absolute -top-2 right-1'>{cartQuantity}</span>
+							<span
+								className='absolute -top-2 right-1'
+								data-testid='cart-quantity'>
+								{cartQuantity}
+							</span>
 						</Link>
 					</li>
 					<li>

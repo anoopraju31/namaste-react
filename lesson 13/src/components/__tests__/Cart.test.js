@@ -65,5 +65,9 @@ describe('Cart Functionality Testing', () => {
 		expect(addBtn).toBeInTheDocument()
 
 		fireEvent.click(addBtn)
+
+		const cartQuantity = screen.getByTestId('cart-quantity').innerHTML
+
+		expect(cartQuantity).toBe('1')
 	})
 })
