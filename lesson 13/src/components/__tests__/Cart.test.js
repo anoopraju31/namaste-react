@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom'
 import { Provider } from 'react-redux'
@@ -30,5 +30,9 @@ describe('Cart Functionality Testing', () => {
 		})
 
 		expect(restaurantName.length).toBe(2)
+
+		const accordionHeader = screen.getByText('Upma (250 Gms)')
+
+		expect(accordionHeader).toBeInTheDocument()
 	})
 })
