@@ -7,6 +7,14 @@ const Browse = () => {
 	return (
 		<main>
 			<Header />
+			{/* 
+				Main Video Container
+					- Video Background
+					- Video title
+				Secondary Container
+					- Movie List * n
+						- Cards * n
+			*/}
 		</main>
 	)
 }
