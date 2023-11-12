@@ -12,10 +12,10 @@ const Body = () => {
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
-			const { accessToken, displayName, email, photoUrl } = user
-
-			if (user) dispatch(addUser({ accessToken, displayName, email, photoUrl }))
-			else dispatch(removeUser())
+			if (user) {
+				const { accessToken, displayName, email, photoUrl } = user
+				dispatch(addUser({ accessToken, displayName, email, photoUrl }))
+			} else dispatch(removeUser())
 		})
 	}, [dispatch])
 
