@@ -5,7 +5,7 @@ import {
 	updateProfile,
 } from 'firebase/auth'
 import Header from './Header'
-import { LOGIN_BG } from '../utills/constants'
+import { LOGIN_BG, USER_AVATAR } from '../utills/constants'
 import { auth } from '../utills/firebase'
 import { checkValidateData } from '../utills/validation'
 import { useDispatch } from 'react-redux'
@@ -42,7 +42,7 @@ const Login = () => {
 					// Add user name to account
 					updateProfile(user, {
 						displayName: name,
-						photoURL: 'https://avatars.githubusercontent.com/u/59496739?v=4',
+						photoURL: USER_AVATAR,
 					})
 						.then(() => {
 							const { accessToken, uid, displayName, email, photoURL } =
