@@ -1,11 +1,12 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { LOGO_IMG, USER_AVATAR } from '../utills/constants'
 import { signOut } from 'firebase/auth'
 import { auth } from '../utills/firebase'
-import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
 	const navigate = useNavigate()
+	const user = useSelector((state) => state.user)
 
 	const handleSignOut = () => {
 		signOut(auth)
@@ -22,14 +23,16 @@ const Header = () => {
 				<img className='w-36 sm:w-44' src={LOGO_IMG} alt='logo' />
 			</div>
 
-			<div className='flex'>
-				<img className='w-12 h-12' src={USER_AVATAR} alt='user avatar' />
+			{user && (
+				<div className='flex'>
+					<img className='w-12 h-12' src={user?.photoURL} alt='user avatar' />
 
-				<button onClick={handleSignOut} className='font-bold text-white'>
-					{' '}
-					Sign Out{' '}
-				</button>
-			</div>
+					<button onClick={handleSignOut} className='font-bold text-white'>
+						{' '}
+						Sign Out{' '}
+					</button>
+				</div>
+			)}
 		</header>
 	)
 }
