@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -16,7 +15,6 @@ const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
 	const [errorMessage, setErrorMessage] = useState()
 	const dispatch = useDispatch()
-	const navigate = useNavigate()
 
 	const nameRef = useRef(null)
 	const emailRef = useRef(null)
@@ -53,7 +51,6 @@ const Login = () => {
 								addUser({ accessToken, uid, displayName, email, photoURL }),
 							)
 						})
-						.then(() => navigate('/browse'))
 						.catch((error) => {
 							setErrorMessage(error.message)
 						})
@@ -63,13 +60,9 @@ const Login = () => {
 				})
 		} else {
 			// Sign In Logic
-			signInWithEmailAndPassword(auth, email, password)
-				.then((userCredential) => {
-					navigate('/browse')
-				})
-				.catch((error) => {
-					setErrorMessage(error.message)
-				})
+			signInWithEmailAndPassword(auth, email, password).catch((error) => {
+				setErrorMessage(error.message)
+			})
 		}
 	}
 
