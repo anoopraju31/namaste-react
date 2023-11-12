@@ -11,3 +11,6 @@ export const API_OPTIONS = {
 		Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_API_KEY,
 	},
 }
+
+export const TMDB_MOVIE_VIDEO_API = (movieId) =>
+	`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`

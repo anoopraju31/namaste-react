@@ -19,7 +19,7 @@ const useNowPlayingMovies = () => {
 
 		dispatch(addNowPlayingMovies(data.results))
 
-		console.log(data)
+		// console.log(data)
 	}
 }
 
