@@ -24,6 +24,7 @@ const Header = () => {
 			}
 		})
 
+		// unsubscribe will be called when the component unmounts
 		return () => unsubscribe()
 	}, [dispatch, navigate])
 
