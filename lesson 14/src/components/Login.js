@@ -1,16 +1,18 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 } from 'firebase/auth'
 import Header from './Header'
+import { LOGIN_BG } from '../utills/constants'
 import { auth } from '../utills/firebase'
 import { checkValidateData } from '../utills/validation'
-import { LOGIN_BG } from '../utills/constants'
 
 const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
 	const [errorMessage, setErrorMessage] = useState()
+	const navigate = useNavigate()
 
 	const nameRef = useRef(null)
 	const emailRef = useRef(null)
@@ -34,6 +36,7 @@ const Login = () => {
 			createUserWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
 					const user = userCredential.user
+					navigate('/browse')
 
 					console.log(user)
 				})
@@ -46,6 +49,8 @@ const Login = () => {
 			signInWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
 					const user = userCredential.user
+					navigate('/browse')
+
 					console.log(user)
 				})
 				.catch((error) => {
@@ -72,7 +77,7 @@ const Login = () => {
 			</section>
 
 			<section className='absolute top-0 left-0 right-0 w-full h-screen flex justify-center sm:items-center bg-black sm:bg-black/30'>
-				<form className='w-full sm:w-96 my-20 sm:mt-0 p-8 sm:rounded-lg flex flex-col bg-black/80 text-white'>
+				<form className='w-full sm:w-96 my-20 sm:mt-0 p-6 sm:p-8 sm:rounded-lg flex flex-col bg-black/80 text-white'>
 					{/* Title */}
 					<h1 className='font-medium text-3xl pb-8'>
 						{isSignInForm ? 'Sign In' : 'Sign Up'}
