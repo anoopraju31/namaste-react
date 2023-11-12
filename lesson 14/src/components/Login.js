@@ -117,6 +117,7 @@ const Login = () => {
 					<div className='mt-4 mb-8 '>
 						{/* Submit Button */}
 						<button
+							type='submit'
 							onClick={handleButtonClick}
 							className='w-full mb-2 px-6 py-2 font-medium bg-red-600 rounded-md'>
 							{isSignInForm ? 'Sign In' : 'Sign Up'}
@@ -139,12 +140,13 @@ const Login = () => {
 					{/* Switch between sign in and sign up page */}
 					<p className='text-sm text-zinc-400'>
 						{isSignInForm ? 'New to Netflix? ' : 'Already registered? '}
-						<span
+						<button
+							type='button'
 							tabIndex={0}
 							onClick={toggleSignInForm}
 							className='text-white hover:border-b hover:border-b-white'>
 							{isSignInForm ? 'Sign up now' : 'Sign in now'}
-						</span>
+						</button>
 						.
 					</p>
 				</form>
