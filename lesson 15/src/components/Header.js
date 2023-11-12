@@ -13,7 +13,7 @@ const Header = () => {
 	const user = useSelector((state) => state.user)
 
 	useEffect(() => {
-		onAuthStateChanged(auth, (user) => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			if (user) {
 				const { accessToken, displayName, uid, email, photoURL } = user
 				dispatch(addUser({ accessToken, displayName, uid, email, photoURL }))
@@ -23,6 +23,8 @@ const Header = () => {
 				navigate('/')
 			}
 		})
+
+		return () => unsubscribe()
 	}, [dispatch, navigate])
 
 	const handleSignOut = () => {
