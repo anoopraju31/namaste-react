@@ -9,10 +9,13 @@ import Header from './Header'
 import { LOGIN_BG } from '../utills/constants'
 import { auth } from '../utills/firebase'
 import { checkValidateData } from '../utills/validation'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../reducers/userSlice'
 
 const Login = () => {
 	const [isSignInForm, setIsSignInForm] = useState(true)
 	const [errorMessage, setErrorMessage] = useState()
+	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
 	const nameRef = useRef(null)
@@ -38,13 +41,19 @@ const Login = () => {
 				.then((userCredential) => {
 					const user = userCredential.user
 
+					// Add user name to account
 					updateProfile(user, {
 						displayName: name,
 						photoURL: 'https://avatars.githubusercontent.com/u/59496739?v=4',
 					})
 						.then(() => {
-							navigate('/browse')
+							const { accessToken, uid, displayName, email, photoURL } =
+								auth.currentUser
+							dispatch(
+								addUser({ accessToken, uid, displayName, email, photoURL }),
+							)
 						})
+						.then(() => navigate('/browse'))
 						.catch((error) => {
 							setErrorMessage(error.message)
 						})
