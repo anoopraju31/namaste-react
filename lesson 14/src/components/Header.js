@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { LOGO_IMG, USER_AVATAR } from '../utills/constants'
+import { LOGO_IMG } from '../utills/constants'
 import { signOut } from 'firebase/auth'
 import { auth } from '../utills/firebase'
 
