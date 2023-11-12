@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	updateProfile,
 } from 'firebase/auth'
 import Header from './Header'
 import { LOGIN_BG } from '../utills/constants'
@@ -36,26 +37,29 @@ const Login = () => {
 			createUserWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
 					const user = userCredential.user
-					navigate('/browse')
 
-					console.log(user)
+					updateProfile(user, {
+						displayName: name,
+						photoURL: 'https://avatars.githubusercontent.com/u/59496739?v=4',
+					})
+						.then(() => {
+							navigate('/browse')
+						})
+						.catch((error) => {
+							setErrorMessage(error.message)
+						})
 				})
 				.catch((error) => {
-					const errorMessage = error.message
-					setErrorMessage(errorMessage)
+					setErrorMessage(error.message)
 				})
 		} else {
 			// Sign In Logic
 			signInWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
-					const user = userCredential.user
 					navigate('/browse')
-
-					console.log(user)
 				})
 				.catch((error) => {
-					const errorMessage = error.message
-					setErrorMessage(errorMessage)
+					setErrorMessage(error.message)
 				})
 		}
 	}
