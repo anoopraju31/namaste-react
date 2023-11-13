@@ -7,7 +7,7 @@ const VideoBackground = ({ movieId, img }) => {
 	const trailer = useSelector((state) => state?.movies?.trailerVideo)
 
 	return (
-		<div className=''>
+		<div className='absolute sm:relative top-0 w-full'>
 			<iframe
 				className='w-full aspect-video hidden sm:block'
 				src={`https://www.youtube.com/embed/${trailer?.key}?&autoplay=1&mute=1&loop=1&controls=0&rel=0&showinfo=0&disablekb=1`}
