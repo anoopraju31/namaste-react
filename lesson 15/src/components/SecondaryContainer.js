@@ -1,8 +1,14 @@
-import React from 'react'
+import { useSelector } from 'react-redux'
+import MovieList from './MovieList'
 
 const SecondaryContainer = () => {
+	const nowPlayingMovies = useSelector(
+		(state) => state?.movies?.nowPlayingMovies,
+	)
 	return (
-		<section>
+		<section className='h-screen'>
+			<MovieList title='Now Playing' movies={nowPlayingMovies} />
+
 			{/* 
 			MovieList - Popular
 				- MovieCard - n
