@@ -14,8 +14,8 @@ const VideoBackground = ({ movieId, img }) => {
 				title='YouTube video player'
 				allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'></iframe>
 
-			<div className='w-full aspect-video sm:hidden'>
-				<img src={IMG_CDN_URL + img} alt='' />
+			<div className='w-full sm:hidden'>
+				<img className='w-full aspect-video' src={IMG_CDN_URL + img} alt='' />
 			</div>
 		</div>
 	)
