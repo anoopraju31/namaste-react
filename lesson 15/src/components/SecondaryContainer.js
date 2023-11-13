@@ -6,7 +6,7 @@ const SecondaryContainer = () => {
 		(state) => state?.movies?.nowPlayingMovies,
 	)
 	return (
-		<section className='relative w-full md:-top-10 lg:-top-28 z-50'>
+		<section className='relative w-full md:-top-10 lg:-top-28 xl:-top-36 z-50'>
 			<MovieList title='Now Playing' movies={nowPlayingMovies} />
 			<MovieList title='Trending' movies={nowPlayingMovies} />
 			<MovieList title='Popular' movies={nowPlayingMovies} />
