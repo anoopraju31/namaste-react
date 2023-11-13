@@ -42,10 +42,20 @@ const Header = () => {
 			</div>
 
 			{user && (
-				<div className='hidden md:flex'>
-					<img className='w-12 h-12' src={user?.photoURL} alt='user avatar' />
+				<div className='hidden md:flex items-center gap-2'>
+					<button className='py-1 px-4 text-white bg-purple-600 rounded-lg font-medium'>
+						{' '}
+						GPT Search{' '}
+					</button>
+					<img
+						className='w-8 h-8 rounded-lg'
+						src={user?.photoURL}
+						alt='user avatar'
+					/>
 
-					<button onClick={handleSignOut} className='font-bold text-white'>
+					<button
+						onClick={handleSignOut}
+						className='py-1 px-4 text-white bg-red-600 rounded-lg font-medium'>
 						{' '}
 						Sign Out{' '}
 					</button>
