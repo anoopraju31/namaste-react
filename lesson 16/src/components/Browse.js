@@ -18,27 +18,16 @@ const Browse = () => {
 
 	return (
 		<main className='bg-black min-h-screen'>
-			<div className='max-w-[1536px] mx-auto'>
-				<Header />
+			<Header />
 
-				{showGPTSearch ? (
-					<GPTSearch />
-				) : (
-					<>
-						<MainContainer />
-						<SecondaryContainer />
-					</>
-				)}
-
-				{/* 
-					Main Video Container
-						- Video Background
-						- Video title
-					Secondary Container
-						- Movie List * n
-							- Cards * n
-				*/}
-			</div>
+			{showGPTSearch ? (
+				<GPTSearch />
+			) : (
+				<div className='max-w-[1536px] mx-auto'>
+					<MainContainer />
+					<SecondaryContainer />
+				</div>
+			)}
 		</main>
 	)
 }
