@@ -37,6 +37,7 @@
 - Customm Hook for Popular Movies
 - Custom Hook for Top Rated Movies
 - Custom Hook for Trending Movies
+- GPT Search Feature
 
 
 ## Features
