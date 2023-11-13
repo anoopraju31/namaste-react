@@ -45,10 +45,10 @@ const GPTSearchBar = () => {
 		if (!gptResults.choices) return
 
 		// * [movie1, movie2, movie3, movie4, movie5]
-		const gptMovies = gptResults.choices?.[0]?.message?.content.split(',')
+		const movieNames = gptResults.choices?.[0]?.message?.content.split(',')
 
 		// * For each movie search in TMDB API
-		const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie))
+		const promiseArray = movieNames.map((movie) => searchMovieTMDB(movie))
 
 		// * [Promise, Promise, Promise, Promise, Promise]
 		const tmdbResults = await Promise.all(promiseArray)
@@ -62,7 +62,7 @@ const GPTSearchBar = () => {
 		dispatch(
 			addGPTMovieResults({
 				searchText,
-				movieNames: gptMovies,
+				movieNames,
 				movieResults,
 			}),
 		)
