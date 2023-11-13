@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { LOGO_IMG } from '../utills/constants'
+import { LOGO_IMG, SUPPORTED_LANGUAGES } from '../utills/constants'
 import { signOut, onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../utills/firebase'
 import { addUser, removeUser } from '../reducers/userSlice'
@@ -51,6 +51,18 @@ const Header = () => {
 
 				{user && (
 					<div className='hidden md:flex items-center gap-2'>
+						<select
+							name='supported languages'
+							id='language'
+							value='ml'
+							className='text-sm rounded-lg font-medium block py-1.5 px-4 bg-slate-400/80 border-none outline-none placeholder-gray-400 text-white'>
+							{SUPPORTED_LANGUAGES.map(({ identifier, name }) => (
+								<option key={identifier} value={identifier}>
+									{' '}
+									{name}{' '}
+								</option>
+							))}
+						</select>
 						<button
 							onClick={handleGPTSearchClick}
 							className='py-1 px-4 text-white bg-purple-600 rounded-lg font-medium'>
