@@ -37,8 +37,9 @@
 - Customm Hook for Popular Movies
 - Custom Hook for Top Rated Movies
 - Custom Hook for Trending Movies
-- GPT Search Feature
-
+- GPT Search Page
+- GPT Search Bar
+- (Bonus) _Multi-Language Support Feature added in our App_
 
 ## Features
 - Login / Sign Up
