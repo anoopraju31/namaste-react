@@ -6,6 +6,7 @@ import { LOGO_IMG } from '../utills/constants'
 import { signOut, onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../utills/firebase'
 import { addUser, removeUser } from '../reducers/userSlice'
+import { toggleGPTSearchView } from '../reducers/GPTSlice'
 
 const Header = () => {
 	const navigate = useNavigate()
@@ -34,6 +35,7 @@ const Header = () => {
 
 	const handleGPTSearchClick = () => {
 		// Toggle GPT Search Click
+		dispatch(toggleGPTSearchView())
 	}
 
 	return (
@@ -49,7 +51,7 @@ const Header = () => {
 			{user && (
 				<div className='hidden md:flex items-center gap-2'>
 					<button
-						onclick={handleGPTSearchClick}
+						onClick={handleGPTSearchClick}
 						className='py-1 px-4 text-white bg-purple-600 rounded-lg font-medium'>
 						{' '}
 						GPT Search{' '}
