@@ -6,7 +6,10 @@ const MovieList = ({ title, movies }) => {
 	return (
 		<div className='text-white'>
 			<div className='p-4'>
-				<h2 className='text-xl font-bold'> {title} </h2>
+				<h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold'>
+					{' '}
+					{title}{' '}
+				</h2>
 			</div>
 
 			<div className='w-full px-4  flex gap-4 overflow-x-auto scrollbar'>
