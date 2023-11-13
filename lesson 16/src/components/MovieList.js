@@ -14,7 +14,7 @@ const MovieList = ({ title, movies }) => {
 
 			<div className='w-full px-4  flex gap-4 overflow-x-auto scrollbar-hide'>
 				{movies?.map((movie) => (
-					<MovieCard key={movie.id} poster={movie?.poster_path} />
+					<MovieCard key={movie.id} fixedWidth poster={movie?.poster_path} />
 				))}
 			</div>
 		</div>

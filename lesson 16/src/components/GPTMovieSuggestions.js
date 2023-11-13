@@ -7,7 +7,7 @@ const GPTMovieSuggestions = () => {
 	if (!moviesNames) return null
 
 	return (
-		<section className='max-w-7xl mx-auto p-4 mt-16 flex flex-wrap justify-between gap-4'>
+		<section className='w-fit mx-auto p-4 mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4'>
 			{movieResults?.map((movie) => (
 				<MovieCard key={movie.id} poster={movie?.poster_path} />
 			))}

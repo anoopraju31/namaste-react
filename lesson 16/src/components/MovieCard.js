@@ -1,9 +1,12 @@
 import { IMG_CDN_URL } from '../utills/constants'
 import { FaImage } from 'react-icons/fa6'
 
-const MovieCard = ({ poster }) => {
+const MovieCard = ({ poster, fixedWidth }) => {
 	return (
-		<div className='relative group w-36 md:w-48 flex-shrink-0 cursor-pointer flex'>
+		<div
+			className={`relative group flex-shrink-0 cursor-pointer flex ${
+				fixedWidth && 'w-36 md:w-48 '
+			}`}>
 			{poster ? (
 				<img className='rounded-xl w-full' src={IMG_CDN_URL + poster} alt='' />
 			) : (
