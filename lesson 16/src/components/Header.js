@@ -14,6 +14,7 @@ const Header = () => {
 	const dispatch = useDispatch()
 	const user = useSelector((state) => state.user)
 	const selectedLanguage = useSelector((state) => state.config?.language)
+	const showGPTSearch = useSelector((state) => state.gpt.showGPTSearch)
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -57,24 +58,25 @@ const Header = () => {
 
 				{user && (
 					<div className='hidden md:flex items-center gap-2'>
-						<select
-							name='supported languages'
-							id='language'
-							value={selectedLanguage}
-							onChange={handleLanguageSelect}
-							className='text-sm rounded-lg font-medium block py-1.5 px-4 bg-slate-400/80 border-none outline-none placeholder-gray-400 text-white'>
-							{SUPPORTED_LANGUAGES.map(({ identifier, name }) => (
-								<option key={identifier} value={identifier}>
-									{' '}
-									{name}{' '}
-								</option>
-							))}
-						</select>
+						{showGPTSearch && (
+							<select
+								name='supported languages'
+								id='language'
+								value={selectedLanguage}
+								onChange={handleLanguageSelect}
+								className='text-sm rounded-lg font-medium block py-1.5 px-4 bg-slate-400/80 border-none outline-none placeholder-gray-400 text-white'>
+								{SUPPORTED_LANGUAGES.map(({ identifier, name }) => (
+									<option key={identifier} value={identifier}>
+										{' '}
+										{name}{' '}
+									</option>
+								))}
+							</select>
+						)}
 						<button
 							onClick={handleGPTSearchClick}
 							className='py-1 px-4 text-white bg-purple-600 rounded-lg font-medium'>
-							{' '}
-							GPT Search{' '}
+							{showGPTSearch ? 'Home' : 'GPT Search'}
 						</button>
 						<img
 							className='w-8 h-8 rounded-lg'
