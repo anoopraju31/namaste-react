@@ -71,7 +71,7 @@ const GPTSearchBar = () => {
 	}
 
 	return (
-		<div className='py-20 sm:py-24 md:py-28 lg:py-32 xl:py-36 2xl:py-40 flex flex-col items-center'>
+		<div className='pt-20 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-36 2xl:pt-40 flex flex-col items-center'>
 			<form
 				className='flex-shrink-0 p-4 w-full flex justify-center'
 				onSubmit={handleSubmit}>
