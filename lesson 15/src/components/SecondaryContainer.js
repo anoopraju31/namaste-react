@@ -6,8 +6,12 @@ const SecondaryContainer = () => {
 		(state) => state?.movies?.nowPlayingMovies,
 	)
 	return (
-		<section className='h-screen'>
+		<section className=''>
 			<MovieList title='Now Playing' movies={nowPlayingMovies} />
+			<MovieList title='Trending' movies={nowPlayingMovies} />
+			<MovieList title='Popular' movies={nowPlayingMovies} />
+			<MovieList title='Horror' movies={nowPlayingMovies} />
+			<MovieList title='Comedy' movies={nowPlayingMovies} />
 
 			{/* 
 			MovieList - Popular
