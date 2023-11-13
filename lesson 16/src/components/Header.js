@@ -6,13 +6,14 @@ import { LOGO_IMG, SUPPORTED_LANGUAGES } from '../utills/constants'
 import { signOut, onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../utills/firebase'
 import { addUser, removeUser } from '../reducers/userSlice'
-import { selectLanguage, toggleGPTSearchView } from '../reducers/GPTSlice'
+import { toggleGPTSearchView } from '../reducers/GPTSlice'
+import { selectLanguage } from '../reducers/configSlice.js'
 
 const Header = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const user = useSelector((state) => state.user)
-	const selectedLanguage = useSelector((state) => state.gpt.language)
+	const selectedLanguage = useSelector((state) => state.config?.language)
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {

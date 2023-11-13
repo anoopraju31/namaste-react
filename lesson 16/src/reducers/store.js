@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './userSlice'
 import movieReducer from './movieSlices'
 import GPTReducer from './GPTSlice'
-import configReducer from './configSlice'
+import configReducer from './configSlice.js'
 
 const store = configureStore({
 	reducer: {

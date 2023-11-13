@@ -2,7 +2,9 @@ import { useSelector } from 'react-redux'
 import languages from '../utills/languageConstants'
 
 const GPTSearchBar = () => {
-	const selectedLanguage = useSelector((state) => state.gpt.language)
+	const selectedLanguage = useSelector((state) => state.config.language)
+
+	console.log(selectedLanguage)
 
 	return (
 		<div className='py-20 sm:py-24 md:py-28 lg:py-32 xl:py-36 2xl:py-40 flex flex-col items-center'>
