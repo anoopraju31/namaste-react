@@ -1,6 +1,6 @@
 import Header from './Header'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
-import useTopRatedMovies from '../hooks/useTopRatedMovies '
+import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useTrendingMovies from '../hooks/useTrendingMovies'
 import usePopularMovies from '../hooks/usePopularMovies'
 import MainContainer from './MainContainer'
