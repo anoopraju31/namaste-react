@@ -7,11 +7,12 @@ const Browse = () => {
 	useNowPlayingMovies()
 
 	return (
-		<main>
-			<Header />
-			<MainContainer />
-			<SecondaryContainer />
-			{/* 
+		<main className='bg-black'>
+			<div className='max-w-[1536px] mx-auto'>
+				<Header />
+				<MainContainer />
+				<SecondaryContainer />
+				{/* 
 				Main Video Container
 					- Video Background
 					- Video title
@@ -19,6 +20,7 @@ const Browse = () => {
 					- Movie List * n
 						- Cards * n
 			*/}
+			</div>
 		</main>
 	)
 }
