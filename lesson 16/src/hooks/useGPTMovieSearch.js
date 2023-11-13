@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import openai from '../utills/openai'
 import { API_OPTIONS, GET_GPT_QUERY } from '../utills/constants'
 import { addGPTMovieResults } from '../reducers/GPTSlice'
@@ -9,6 +9,7 @@ const useGPTMovieSearch = () => {
 	const [error, setError] = useState(null)
 	const searchRef = useRef(null)
 	const dispatch = useDispatch()
+	const previousSearchText = useSelector((state) => state.gpt.searchText)
 
 	const searchMovieTMDB = async (movie) => {
 		const data = await fetch(
@@ -28,6 +29,7 @@ const useGPTMovieSearch = () => {
 		const searchText = searchRef.current.value
 
 		if (!searchText) return
+		if (previousSearchText === searchText) return
 
 		try {
 			setLoading(true)
