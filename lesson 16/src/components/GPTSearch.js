@@ -6,7 +6,7 @@ import { LOGIN_BG } from '../utills/constants'
 const GPTSearch = () => {
 	return (
 		<div className='relative'>
-			<section className='absolute w-full h-screen'>
+			<section className='fixed top-0 left-0 right-0 w-full h-screen'>
 				<img
 					className='w-full h-full object-cover'
 					src={LOGIN_BG}
