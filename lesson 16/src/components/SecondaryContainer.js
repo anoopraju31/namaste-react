@@ -17,15 +17,6 @@ const SecondaryContainer = () => {
 			<MovieList title='Top Rated' movies={topRatedMovies} />
 			<MovieList title='Horror' movies={nowPlayingMovies} />
 			<MovieList title='Comedy' movies={nowPlayingMovies} />
-
-			{/* 
-			MovieList - Popular
-				- MovieCard - n
-			MovieList - Now Playing
-			MovieList - Trending
-			MovieList - Horror
-			MovieList - Comedy
-		*/}
 		</section>
 	)
 }
