@@ -34,3 +34,8 @@ export const SUPPORTED_LANGUAGES = [
 		name: 'Spanish',
 	},
 ]
+
+export const GET_GPT_QUERY = (searchText) =>
+	'Act as a Movie Recommendation System and suggest some movies for the query : ' +
+	searchText +
+	'. only give me names of 5 movies, coma seperated like the example given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya'

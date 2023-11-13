@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import languages from '../utills/languageConstants'
 import openai from '../utills/openai'
-import { API_OPTIONS } from '../utills/constants'
+import { API_OPTIONS, GET_GPT_QUERY } from '../utills/constants'
 import { addGPTMovieResults } from '../reducers/GPTSlice'
 
 const GPTSearchBar = () => {
@@ -10,7 +10,6 @@ const GPTSearchBar = () => {
 	const searchRef = useRef(null)
 	const dispatch = useDispatch()
 
-	// search movie in TMDB
 	const searchMovieTMDB = async (movie) => {
 		const data = await fetch(
 			'https://api.themoviedb.org/3/search/movie?query=' +
@@ -30,10 +29,7 @@ const GPTSearchBar = () => {
 
 		if (!searchText) return
 
-		const gptQuery =
-			'Act as a Movie Recommendation System and suggest some movies for the query : ' +
-			searchText +
-			'. only give me names of 5 movies, coma seperated like the example given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya'
+		const gptQuery = GET_GPT_QUERY(searchText)
 
 		// * Make an API call to openai and get Movie results
 		const gptResults = await openai.chat.completions.create({
