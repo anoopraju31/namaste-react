@@ -1,7 +1,12 @@
 import React from 'react'
+import GPTSearchBar from './GPTSearchBar'
 
 const GPTSearch = () => {
-	return <div>GPTSearch</div>
+	return (
+		<div>
+			<GPTSearchBar />
+		</div>
+	)
 }
 
 export default GPTSearch
