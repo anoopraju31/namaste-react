@@ -7,8 +7,7 @@ const MovieList = ({ title, movies }) => {
 		<div className='text-white'>
 			<div className='p-4'>
 				<h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold'>
-					{' '}
-					{title}{' '}
+					{title}
 				</h2>
 			</div>
 
