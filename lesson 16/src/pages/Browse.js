@@ -2,8 +2,8 @@ import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useTrendingMovies from '../hooks/useTrendingMovies'
 import usePopularMovies from '../hooks/usePopularMovies'
-import MainContainer from './MainContainer'
-import SecondaryContainer from './SecondaryContainer'
+import MainContainer from '../components/MainContainer'
+import SecondaryContainer from '../components/SecondaryContainer'
 
 const Browse = () => {
 	useNowPlayingMovies()
