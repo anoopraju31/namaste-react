@@ -6,8 +6,7 @@ import { LOGO_IMG } from '../utills/constants'
 
 const Header = () => {
 	const user = useSelector((state) => state.user)
-	const showGPTSearch = useSelector((state) => state.gpt.showGPTSearch)
-	const { handleSignOut, handleGPTSearchClick } = useHeader()
+	const { handleSignOut } = useHeader()
 
 	useAuthStateChange()
 
@@ -26,11 +25,6 @@ const Header = () => {
 					<div className='hidden md:flex items-center gap-2'>
 						<LanguageSelect />
 
-						<button
-							onClick={handleGPTSearchClick}
-							className='py-1 px-4 text-white bg-purple-600 rounded-lg font-medium'>
-							{showGPTSearch ? 'Home' : 'GPT Search'}
-						</button>
 						<img
 							className='w-8 h-8 rounded-lg'
 							src={user?.photoURL}
