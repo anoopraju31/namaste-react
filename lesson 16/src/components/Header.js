@@ -1,32 +1,16 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import useAuthStateChange from '../hooks/useAuthStateChange.js'
-import { signOut } from 'firebase/auth'
+import useHeader from '../hooks/useHeader.js'
 import { LOGO_IMG, SUPPORTED_LANGUAGES } from '../utills/constants'
-import { auth } from '../utills/firebase'
-import { toggleGPTSearchView } from '../reducers/GPTSlice'
-import { selectLanguage } from '../reducers/configSlice.js'
 
 const Header = () => {
-	const navigate = useNavigate()
-	const dispatch = useDispatch()
 	const user = useSelector((state) => state.user)
 	const selectedLanguage = useSelector((state) => state.config?.language)
 	const showGPTSearch = useSelector((state) => state.gpt.showGPTSearch)
+	const { handleSignOut, handleGPTSearchClick, handleLanguageSelect } =
+		useHeader()
+
 	useAuthStateChange()
-
-	const handleSignOut = () => {
-		signOut(auth).catch((error) => navigate('/error'))
-	}
-
-	const handleGPTSearchClick = () => {
-		// Toggle GPT Search Click
-		dispatch(toggleGPTSearchView())
-	}
-
-	const handleLanguageSelect = (e) => {
-		dispatch(selectLanguage(e.target.value))
-	}
 
 	return (
 		<header className='absolute w-full px-0 sm:px-8 py-2 bg-gradient-to-b from-black z-50'>
@@ -50,8 +34,7 @@ const Header = () => {
 								className='text-sm rounded-lg font-medium block py-1.5 px-4 bg-slate-400/80 border-none outline-none placeholder-gray-400 text-white'>
 								{SUPPORTED_LANGUAGES.map(({ identifier, name }) => (
 									<option key={identifier} value={identifier}>
-										{' '}
-										{name}{' '}
+										{name}
 									</option>
 								))}
 							</select>
@@ -70,8 +53,7 @@ const Header = () => {
 						<button
 							onClick={handleSignOut}
 							className='py-1 px-4 text-white bg-red-600 rounded-lg font-medium'>
-							{' '}
-							Sign Out{' '}
+							Sign Out
 						</button>
 					</div>
 				)}
