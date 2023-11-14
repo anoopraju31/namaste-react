@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import Body from './components/Body'
 import Login from './pages/Login'
 import Browse from './pages/Browse'
-import GPTSearch from './components/GPTSearch'
+import GPTSearch from './pages/GPTSearch'
 import store from './reducers/store'
 
 const App = () => {

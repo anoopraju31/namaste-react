@@ -1,6 +1,6 @@
 import React from 'react'
-import GPTSearchBar from './GPTSearchBar'
-import GPTMovieSuggestions from './GPTMovieSuggestions'
+import GPTSearchBar from '../components/GPTSearchBar'
+import GPTMovieSuggestions from '../components/GPTMovieSuggestions'
 import { LOGIN_BG } from '../utills/constants'
 
 const GPTSearch = () => {
