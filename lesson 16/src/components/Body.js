@@ -3,10 +3,10 @@ import Header from './Header'
 
 const Body = () => {
 	return (
-		<>
+		<div className='bg-black'>
 			<Header />
 			<Outlet />
-		</>
+		</div>
 	)
 }
 
