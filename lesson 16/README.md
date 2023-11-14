@@ -40,6 +40,9 @@
 - GPT Search Page
 - GPT Search Bar
 - (Bonus) _Multi-Language Support Feature added in our App_
+- Custom Hook for Authentication
+- Custom Hook for Auth State Change
+- Custom Hook for Header
 
 ## Features
 - Login / Sign Up
