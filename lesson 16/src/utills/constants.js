@@ -16,6 +16,11 @@ export const TMDB_MOVIE_VIDEO_API = (movieId) =>
 	`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`
 export const IMG_CDN_URL = 'https://image.tmdb.org/t/p/w500'
 
+export const YOUTUBE_VIDEO_URL = (videoKey) =>
+	`https://www.youtube.com/embed/${videoKey}?&autoplay=1&mute=1&loop=1&controls=0&rel=0&showinfo=0&disablekb=1`
+export const YOUTUBE_FEATURES =
+	'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+
 export const SUPPORTED_LANGUAGES = [
 	{
 		identifier: 'en',
