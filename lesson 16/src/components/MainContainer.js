@@ -9,7 +9,6 @@ const MainContainer = () => {
 	if (!movies) return
 
 	const mainMovie = movies[0]
-
 	const { original_title, overview, id, backdrop_path } = mainMovie
 
 	return (
