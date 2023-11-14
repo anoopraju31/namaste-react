@@ -11,10 +11,12 @@ const useAuthStateChange = () => {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			const pathname = window.location.pathname
+
 			if (user) {
 				const { accessToken, displayName, uid, email, photoURL } = user
 				dispatch(addUser({ accessToken, displayName, uid, email, photoURL }))
-				navigate('/browse')
+				navigate(pathname === '/' ? '/browse' : pathname)
 			} else {
 				dispatch(removeUser())
 				navigate('/')
