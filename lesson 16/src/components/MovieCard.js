@@ -1,5 +1,5 @@
-import { IMG_CDN_URL } from '../utills/constants'
 import { FaImage } from 'react-icons/fa6'
+import { IMG_CDN_URL } from '../utills/constants'
 
 const MovieCard = ({ poster, fixedWidth }) => {
 	return (
