@@ -1,5 +1,4 @@
 import useAuth from '../hooks/useAuth'
-import Header from './Header'
 import { LOGIN_BG } from '../utills/constants'
 
 const Login = () => {
@@ -15,8 +14,6 @@ const Login = () => {
 
 	return (
 		<main>
-			<Header />
-
 			<section className='w-full h-screen'>
 				<img
 					className='w-full h-full object-cover '
