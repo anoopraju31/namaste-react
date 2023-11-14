@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux'
 import useAuthStateChange from '../hooks/useAuthStateChange.js'
 import useHeader from '../hooks/useHeader.js'
-import { LOGO_IMG, SUPPORTED_LANGUAGES } from '../utills/constants'
+import LanguageSelect from './LanguageSelect.js'
+import { LOGO_IMG } from '../utills/constants'
 
 const Header = () => {
 	const user = useSelector((state) => state.user)
-	const selectedLanguage = useSelector((state) => state.config?.language)
 	const showGPTSearch = useSelector((state) => state.gpt.showGPTSearch)
-	const { handleSignOut, handleGPTSearchClick, handleLanguageSelect } =
-		useHeader()
+	const { handleSignOut, handleGPTSearchClick } = useHeader()
 
 	useAuthStateChange()
 
@@ -25,20 +24,8 @@ const Header = () => {
 
 				{user && (
 					<div className='hidden md:flex items-center gap-2'>
-						{showGPTSearch && (
-							<select
-								name='supported languages'
-								id='language'
-								value={selectedLanguage}
-								onChange={handleLanguageSelect}
-								className='text-sm rounded-lg font-medium block py-1.5 px-4 bg-slate-400/80 border-none outline-none placeholder-gray-400 text-white'>
-								{SUPPORTED_LANGUAGES.map(({ identifier, name }) => (
-									<option key={identifier} value={identifier}>
-										{name}
-									</option>
-								))}
-							</select>
-						)}
+						<LanguageSelect />
+
 						<button
 							onClick={handleGPTSearchClick}
 							className='py-1 px-4 text-white bg-purple-600 rounded-lg font-medium'>
