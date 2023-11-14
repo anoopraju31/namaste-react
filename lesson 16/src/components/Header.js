@@ -1,11 +1,9 @@
-import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+import useAuthStateChange from '../hooks/useAuthStateChange.js'
+import { signOut } from 'firebase/auth'
 import { LOGO_IMG, SUPPORTED_LANGUAGES } from '../utills/constants'
-import { signOut, onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../utills/firebase'
-import { addUser, removeUser } from '../reducers/userSlice'
 import { toggleGPTSearchView } from '../reducers/GPTSlice'
 import { selectLanguage } from '../reducers/configSlice.js'
 
@@ -15,22 +13,7 @@ const Header = () => {
 	const user = useSelector((state) => state.user)
 	const selectedLanguage = useSelector((state) => state.config?.language)
 	const showGPTSearch = useSelector((state) => state.gpt.showGPTSearch)
-
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			if (user) {
-				const { accessToken, displayName, uid, email, photoURL } = user
-				dispatch(addUser({ accessToken, displayName, uid, email, photoURL }))
-				navigate('/browse')
-			} else {
-				dispatch(removeUser())
-				navigate('/')
-			}
-		})
-
-		// unsubscribe will be called when the component unmounts
-		return () => unsubscribe()
-	}, [dispatch, navigate])
+	useAuthStateChange()
 
 	const handleSignOut = () => {
 		signOut(auth).catch((error) => navigate('/error'))
